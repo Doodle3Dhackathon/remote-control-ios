@@ -5,7 +5,14 @@ NSInteger xPos;
 NSInteger yPos;
 int speed = 1000;
 
-CGFloat extrusion;
+NSInteger stepDistance = 50;
+
+CGFloat extrusion = 0;
+CGFloat wallthickness = 0.5;
+CGFloat layerHeight= 0.2;
+CGFloat filamentThickness= 2.89;
+CGFloat bottomFlowRate = 2.;
+
 
 @interface MSCViewController ()
 
@@ -25,6 +32,8 @@ CGFloat extrusion;
 
 - (void)loadView
 {
+    //[self getConfig];
+
     self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.view.backgroundColor = [UIColor blackColor];
 
@@ -86,12 +95,44 @@ CGFloat extrusion;
     [self.view addSubview:self.downButton];
 }
 
+//- (void)getConfig
+//{
+//    __block NSDictionary *config;
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    [manager GET:@"http://10.1.3.14/d3dapi/config/all" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"JSON: %@", responseObject);
+//        config = [NSJSONSerialization JSONObjectWithData:responseObject options:nil error:nil];
+////        wallthickness = [config objectForKey:@"printer.wallThickness"];
+//
+//
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"Error: %@", error);
+//    }];
+//}
+
+- (void)apiPostRequest:(NSString *)gcode isFirst:(NSString *)first
+{
+    NSDictionary *parameters = @{@"start" : @"true", @"first" : first, @"gcode" : gcode};
+
+    __block NSString *apiResponse;
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+    [manager POST:@"http://10.1.3.14/d3dapi/printer/print" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        apiResponse = [NSString stringWithFormat:@"JSON: %@", responseObject];
+        NSLog(@"response succes is %@", apiResponse);
+    }     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        apiResponse = [NSString stringWithFormat:@"Error: %@", error];
+        NSLog(@"response failure is %@", apiResponse);
+    }];
+}
+
 - (void)didTapStopButton:(id)didTapStopButton
 {
     NSString *stopCode = @"M107 ;fan off\n"
             "G91 ;relative positioning\n"
             "G1 E-1 F300 ;retract the filament a bit before lifting the nozzle, to release some of the pressure\n"
-            "G1 Z+0.5 E-5 X-20 Y-20 F9000 ;move Z up a bit and retract filament even more\n"
+            "G1 Z+3.5 E-5 X-20 Y-20 F9000 ;move Z up a bit and retract filament even more\n"
             "G28 X0 Y0 ;move X/Y to min endstops, so the head is out of the way\n"
             "M84 ;disable axes / steppers\n"
             "G90 ;absolute positioning\n"
@@ -131,9 +172,15 @@ CGFloat extrusion;
 
 - (void)didTapUpButton:(id)didTapUpButton
 {
-    yPos += 5;
+    NSInteger currentX = xPos;
+    NSInteger currentY = yPos;
+    yPos += stepDistance;
 
     speed = 1000;
+    
+    extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
+
+    NSLog(@"extrusion %f", extrusion);
 
     NSString *gcode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
 
@@ -143,11 +190,16 @@ CGFloat extrusion;
     }
 }
 
+
 - (void)didTapLeftButton:(id)didTapLeftButton
 {
-    xPos -= 5;
+    NSInteger currentX = xPos;
+    NSInteger currentY = yPos;
+    xPos -= stepDistance;
 
     speed = 1000;
+
+    extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
 
     NSString *gcode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
 
@@ -159,9 +211,13 @@ CGFloat extrusion;
 
 - (void)didTapRightButton:(id)didTapRightButton
 {
-    xPos += 5;
+    NSInteger currentX = xPos;
+    NSInteger currentY = yPos;
+    xPos += stepDistance;
 
     speed = 1000;
+
+    extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
 
     NSString *gcode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
 
@@ -173,12 +229,15 @@ CGFloat extrusion;
 
 - (void)didTapDownButton:(id)didTapRequestButton
 {
-    yPos -= 5;
+    NSInteger currentX = xPos;
+    NSInteger currentY = yPos;
+    yPos -= stepDistance;
 
     speed = 1000;
 
+    extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
+
     NSString *gcode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
-    NSString *first = @"false";
 
     if (yPos >= 0)
     {
@@ -186,21 +245,20 @@ CGFloat extrusion;
     }
 }
 
-- (void)apiPostRequest:(NSString *)gcode isFirst:(NSString *)first
+- (CGFloat)calculateExtrusionWithtargetX:(NSInteger)targetX targetY:(NSInteger)targetY currentX:(NSInteger)x currentY:(NSInteger)y
 {
-    NSDictionary *parameters = @{@"start" : @"true", @"first" : first, @"gcode" : gcode};
+//    var dx = targetX - drawX,
+//            dy = targetY - drawY;
+//    dist = Math.sqrt(dx * dx + dy * dy);
+//
+//    extruder += dist * settings.wallThickness * settings.layerHeight / (Math.pow((settings.filamentThickness/2), 2) * Math.PI) * settings.bottomFlowRate;
 
-    __block NSString *apiResponse;
+    NSInteger dx = targetX - x;
+    NSInteger dy = targetY - y;
+    CGFloat dist = (CGFloat) sqrt(dx * dx + dy * dy);
 
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    CGFloat extruder = (CGFloat) (dist * wallthickness * layerHeight / (pow((filamentThickness*0.5),2) * M_PI) * bottomFlowRate);
 
-    [manager POST:@"http://10.1.3.14/d3dapi/printer/print" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        apiResponse = [NSString stringWithFormat:@"JSON: %@", responseObject];
-        NSLog(@"response succes is %@", apiResponse);
-    }     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        apiResponse = [NSString stringWithFormat:@"Error: %@", error];
-        NSLog(@"response failure is %@", apiResponse);
-    }];
+    return extruder;
 }
-
 @end
