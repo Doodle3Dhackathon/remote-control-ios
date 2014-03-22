@@ -4,7 +4,9 @@
 NSInteger xPos;
 NSInteger yPos;
 CGFloat zPos;
-int speed = 1000;
+int speed = 2000;
+
+NSString * ipAddress = @"10.1.3.47";
 
 NSInteger stepDistance = 50;
 
@@ -36,79 +38,52 @@ CGFloat bottomFlowRate = 2.;
 
     self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.view.backgroundColor = [UIColor blackColor];
-
-    self.startButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//
     CGRect startButtonFrame = CGRectMake((320 - 100) * 0.5, 100, 100, 47);
-    self.startButton.frame = startButtonFrame;
-    self.startButton.backgroundColor = [UIColor blackColor];
-    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+    self.startButton = [self createButtonWithTitle:@"Start" withFrame:startButtonFrame];
     [self.startButton addTarget:self action:@selector(didTapStartButton:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.startButton];
 
-    self.stopButton = [UIButton buttonWithType:UIButtonTypeCustom];
     CGRect stopButtonFrame = CGRectMake((320 - 100) * 0.5, 500, 100, 47);
-    self.stopButton.frame = stopButtonFrame;
-    self.stopButton.backgroundColor = [UIColor blackColor];
-    [self.stopButton setTitle:@"Stop" forState:UIControlStateNormal];
+    self.stopButton = [self createButtonWithTitle:@"Stop" withFrame:stopButtonFrame];
     [self.stopButton addTarget:self action:@selector(didTapStopButton:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.stopButton];
 
-    self.zButton = [UIButton buttonWithType:UIButtonTypeCustom];
     CGRect zButtonFrame = CGRectMake((320 - 100) * 0.5, 300, 100, 47);
-    self.zButton.frame = zButtonFrame;
-    self.zButton.backgroundColor = [UIColor blackColor];
-    [self.zButton setTitle:@"Z" forState:UIControlStateNormal];
+    self.zButton = [self createButtonWithTitle:@"Z" withFrame:zButtonFrame];
     [self.zButton addTarget:self action:@selector(didTapZButton:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.zButton];
 
-    self.upButton = [UIButton buttonWithType:UIButtonTypeCustom];
     CGRect upButtonFrame = CGRectMake((320 - 100) * 0.5, 200, 100, 47);
-    self.upButton.frame = upButtonFrame;
-    self.upButton.backgroundColor = [UIColor blackColor];
-    [self.upButton setTitle:@"Up" forState:UIControlStateNormal];
+    self.upButton = [self createButtonWithTitle:@"^" withFrame:upButtonFrame];
     [self.upButton addTarget:self action:@selector(didTapUpButton:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.upButton];
 
-    self.leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     CGRect leftButtonFrame = CGRectMake(0, 300, 100, 47);
-    self.leftButton.frame = leftButtonFrame;
-    self.leftButton.backgroundColor = [UIColor blackColor];
-    [self.leftButton setTitle:@"Left" forState:UIControlStateNormal];
+    self.leftButton = [self createButtonWithTitle:@"<" withFrame:leftButtonFrame];
     [self.leftButton addTarget:self action:@selector(didTapLeftButton:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.leftButton];
 
-    self.rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     CGRect rightButtonFrame = CGRectMake(220, 300, 100, 47);
-    self.rightButton.frame = rightButtonFrame;
-    self.rightButton.backgroundColor = [UIColor blackColor];
-    [self.rightButton setTitle:@"Right" forState:UIControlStateNormal];
+    self.rightButton = [self createButtonWithTitle:@">" withFrame:rightButtonFrame];
     [self.rightButton addTarget:self action:@selector(didTapRightButton:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.rightButton];
 
-    self.downButton = [UIButton buttonWithType:UIButtonTypeCustom];
     CGRect downButtonFrame = CGRectMake((320 - 100) * 0.5, 400, 100, 47);
-    self.downButton.frame = downButtonFrame;
-    self.downButton.backgroundColor = [UIColor blackColor];
-    [self.downButton setTitle:@"Down" forState:UIControlStateNormal];
-
+    self.downButton = [self createButtonWithTitle:@"v" withFrame:downButtonFrame];
     [self.downButton addTarget:self action:@selector(didTapDownButton:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.downButton];
 }
 
-//- (void)getConfig
-//{
-//    __block NSDictionary *config;
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    [manager GET:@"http://10.1.3.14/d3dapi/config/all" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"JSON: %@", responseObject);
-//        config = [NSJSONSerialization JSONObjectWithData:responseObject options:nil error:nil];
-////        wallthickness = [config objectForKey:@"printer.wallThickness"];
-//
-//
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Error: %@", error);
-//    }];
-//}
+- (UIButton *)createButtonWithTitle:(NSString *)string withFrame:(CGRect)frame
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = frame;
+    button.backgroundColor = [UIColor blackColor];
+    [button setTitle:string forState:UIControlStateNormal];
+
+    return button;
+}
 
 - (void)apiPostRequest:(NSString *)gcode isFirst:(NSString *)first
 {
@@ -118,7 +93,7 @@ CGFloat bottomFlowRate = 2.;
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
-    [manager POST:@"http://10.1.3.14/d3dapi/printer/print" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:@"http://10.1.3.47/d3dapi/printer/print" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         apiResponse = [NSString stringWithFormat:@"JSON: %@", responseObject];
         NSLog(@"response succes is %@", apiResponse);
     }     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -139,6 +114,12 @@ CGFloat bottomFlowRate = 2.;
             "M104 S180\n"
             "M117 Done ;display message (20 characters to clear whole screen)";
     [self apiPostRequest:stopCode isFirst:@"false"];
+    
+    xPos = 0;
+    yPos = 0;
+    zPos = 0;
+    extrusion = 0;
+    
 }
 
 - (void)didTapStartButton:(id)didTapStartButton
@@ -178,8 +159,6 @@ CGFloat bottomFlowRate = 2.;
     NSInteger currentY = yPos;
     yPos += stepDistance;
 
-    speed = 1000;
-
     extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
 
     NSString *gcode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
@@ -195,8 +174,6 @@ CGFloat bottomFlowRate = 2.;
     NSInteger currentX = xPos;
     NSInteger currentY = yPos;
     xPos -= stepDistance;
-
-    speed = 1000;
 
     extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
 
@@ -214,8 +191,6 @@ CGFloat bottomFlowRate = 2.;
     NSInteger currentY = yPos;
     xPos += stepDistance;
 
-    speed = 1000;
-
     extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
 
     NSString *gcode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
@@ -231,8 +206,6 @@ CGFloat bottomFlowRate = 2.;
     NSInteger currentX = xPos;
     NSInteger currentY = yPos;
     yPos -= stepDistance;
-
-    speed = 1000;
 
     extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
 
