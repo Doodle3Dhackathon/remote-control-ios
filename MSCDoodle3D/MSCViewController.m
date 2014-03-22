@@ -3,16 +3,16 @@
 
 NSInteger xPos;
 NSInteger yPos;
+CGFloat zPos;
 int speed = 1000;
 
 NSInteger stepDistance = 50;
 
 CGFloat extrusion = 0;
 CGFloat wallthickness = 0.5;
-CGFloat layerHeight= 0.2;
-CGFloat filamentThickness= 2.89;
+CGFloat layerHeight = 0.2;
+CGFloat filamentThickness = 2.89;
 CGFloat bottomFlowRate = 2.;
-
 
 @interface MSCViewController ()
 
@@ -157,17 +157,19 @@ CGFloat bottomFlowRate = 2.;
             "G92 E0 ;zero the extruded length again\n"
             "G1 F9000\n"
             "G90 ;absolute positioning\n"
-            "G1 Z0.2\n"
+            "G1 Z0.1\n"
             "M117 Printing Marijn&Marco   ;display message (20 characters to clear whole screen)',";
 
-    NSLog(startCode);
 
     [self apiPostRequest:startCode isFirst:@"true"];
-
 }
 
 - (void)didTapZButton:(id)didTapZButton
 {
+    zPos += layerHeight;
+    NSLog(@"zpos %f", zPos);
+    NSString *gcode = [NSString stringWithFormat:@"G%d Z%f", 1, zPos];
+    [self apiPostRequest:gcode isFirst:@"false"];
 }
 
 - (void)didTapUpButton:(id)didTapUpButton
@@ -177,10 +179,8 @@ CGFloat bottomFlowRate = 2.;
     yPos += stepDistance;
 
     speed = 1000;
-    
-    extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
 
-    NSLog(@"extrusion %f", extrusion);
+    extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
 
     NSString *gcode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
 
@@ -189,7 +189,6 @@ CGFloat bottomFlowRate = 2.;
         [self apiPostRequest:gcode isFirst:@"false"];
     }
 }
-
 
 - (void)didTapLeftButton:(id)didTapLeftButton
 {
@@ -257,7 +256,7 @@ CGFloat bottomFlowRate = 2.;
     NSInteger dy = targetY - y;
     CGFloat dist = (CGFloat) sqrt(dx * dx + dy * dy);
 
-    CGFloat extruder = (CGFloat) (dist * wallthickness * layerHeight / (pow((filamentThickness*0.5),2) * M_PI) * bottomFlowRate);
+    CGFloat extruder = (CGFloat) (dist * wallthickness * layerHeight / (pow((filamentThickness * 0.5), 2) * M_PI) * bottomFlowRate);
 
     return extruder;
 }
