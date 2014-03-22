@@ -35,7 +35,7 @@
       <file leaf-file-name="MSCAppDelegate.m" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSCDoodle3D/MSCAppDelegate.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="106" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1498">
+            <state line="4" column="44" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1498">
               <folding />
             </state>
           </provider>
@@ -62,7 +62,7 @@
       <file leaf-file-name="MSCViewController.m" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MSCDoodle3D/MSCViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="4" selection-start="408" selection-end="408" vertical-scroll-proportion="0.28081122" vertical-offset="75" max-vertical-offset="1766">
+            <state line="118" column="22" selection-start="5443" selection-end="5443" vertical-scroll-proportion="0.44929796" vertical-offset="1482" max-vertical-offset="3701">
               <folding />
             </state>
           </provider>
@@ -93,8 +93,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="127" />
-    <option name="y" value="25" />
+    <option name="x" value="7" />
+    <option name="y" value="22" />
     <option name="width" value="1680" />
     <option name="height" value="1024" />
   </component>
@@ -234,7 +234,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="127" y="25" width="1680" height="1024" extended-state="0" />
+    <frame x="7" y="22" width="1680" height="1024" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277487" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -266,7 +266,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="8" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -312,13 +312,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/MSCAppDelegate.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="106" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1272">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MSCDoodle3D/MSCAppDelegate.h">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="625">
@@ -333,9 +326,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/MSCAppDelegate.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="44" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1498">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MSCDoodle3D/MSCViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="4" selection-start="408" selection-end="408" vertical-scroll-proportion="0.28081122" vertical-offset="75" max-vertical-offset="1766">
+        <state line="118" column="22" selection-start="5443" selection-end="5443" vertical-scroll-proportion="0.44929796" vertical-offset="1482" max-vertical-offset="3701">
           <folding />
         </state>
       </provider>

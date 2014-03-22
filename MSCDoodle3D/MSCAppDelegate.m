@@ -19,7 +19,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.tintColor = [UIColor blueColor];
+    self.window.tintColor = [UIColor blackColor];
     self.mscViewController = [[MSCViewController alloc] init];
 
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.mscViewController];

@@ -1,10 +1,23 @@
 #import "MSCViewController.h"
 #import "AFHTTPRequestOperationManager.h"
 
+NSInteger xPos;
+NSInteger yPos;
+int speed = 1000;
+
+CGFloat extrusion;
+
 @interface MSCViewController ()
 
-@property(nonatomic, strong) UIButton *requestButton;
+@property(nonatomic, strong) UIButton *downButton;
 @property(nonatomic, strong) UITextView *textView;
+
+@property(nonatomic, strong) UIButton *rightButton;
+@property(nonatomic, strong) UIButton *leftButton;
+@property(nonatomic, strong) UIButton *upButton;
+@property(nonatomic, strong) UIButton *zButton;
+@property(nonatomic, strong) UIButton *startButton;
+@property(nonatomic, strong) UIButton *stopButton;
 
 @end
 
@@ -15,46 +28,162 @@
     self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.view.backgroundColor = [UIColor blackColor];
 
-    
+    self.startButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGRect startButtonFrame = CGRectMake((320 - 100) * 0.5, 100, 100, 47);
+    self.startButton.frame = startButtonFrame;
+    self.startButton.backgroundColor = [UIColor blackColor];
+    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+    [self.startButton addTarget:self action:@selector(didTapStartButton:) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:self.startButton];
 
-    self.requestButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    CGRect continueButtonFrame = CGRectMake((320 - 286) * 0.5, 320, 286, 47);
-    self.requestButton.frame = continueButtonFrame;
-    self.requestButton.backgroundColor = [UIColor blackColor];
-    [self.requestButton setTitle:@"Continue" forState:UIControlStateNormal];
+    self.stopButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGRect stopButtonFrame = CGRectMake((320 - 100) * 0.5, 500, 100, 47);
+    self.stopButton.frame = stopButtonFrame;
+    self.stopButton.backgroundColor = [UIColor blackColor];
+    [self.stopButton setTitle:@"Stop" forState:UIControlStateNormal];
+    [self.stopButton addTarget:self action:@selector(didTapStopButton:) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:self.stopButton];
 
-    [[self.requestButton layer] setBorderWidth:0.8f];
-    [[self.requestButton layer] setBorderColor:[UIColor whiteColor].CGColor];
+    self.zButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGRect zButtonFrame = CGRectMake((320 - 100) * 0.5, 300, 100, 47);
+    self.zButton.frame = zButtonFrame;
+    self.zButton.backgroundColor = [UIColor blackColor];
+    [self.zButton setTitle:@"Z" forState:UIControlStateNormal];
+    [self.zButton addTarget:self action:@selector(didTapZButton:) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:self.zButton];
 
-    [self.requestButton addTarget:self action:@selector(didTapRequestButton:) forControlEvents:UIControlEventTouchDown];
-    [self.view addSubview:self.requestButton];
+    self.upButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGRect upButtonFrame = CGRectMake((320 - 100) * 0.5, 200, 100, 47);
+    self.upButton.frame = upButtonFrame;
+    self.upButton.backgroundColor = [UIColor blackColor];
+    [self.upButton setTitle:@"Up" forState:UIControlStateNormal];
+    [self.upButton addTarget:self action:@selector(didTapUpButton:) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:self.upButton];
+
+    self.leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGRect leftButtonFrame = CGRectMake(0, 300, 100, 47);
+    self.leftButton.frame = leftButtonFrame;
+    self.leftButton.backgroundColor = [UIColor blackColor];
+    [self.leftButton setTitle:@"Left" forState:UIControlStateNormal];
+    [self.leftButton addTarget:self action:@selector(didTapLeftButton:) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:self.leftButton];
+
+    self.rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGRect rightButtonFrame = CGRectMake(220, 300, 100, 47);
+    self.rightButton.frame = rightButtonFrame;
+    self.rightButton.backgroundColor = [UIColor blackColor];
+    [self.rightButton setTitle:@"Right" forState:UIControlStateNormal];
+    [self.rightButton addTarget:self action:@selector(didTapRightButton:) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:self.rightButton];
+
+    self.downButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGRect downButtonFrame = CGRectMake((320 - 100) * 0.5, 400, 100, 47);
+    self.downButton.frame = downButtonFrame;
+    self.downButton.backgroundColor = [UIColor blackColor];
+    [self.downButton setTitle:@"Down" forState:UIControlStateNormal];
+
+    [self.downButton addTarget:self action:@selector(didTapDownButton:) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:self.downButton];
 }
 
-- (void)didTapRequestButton:(id)didTapRequestButton
+- (void)didTapStopButton:(id)didTapStopButton
 {
-    NSInteger g = 1;
-    NSInteger x = 100;
-    NSInteger y = 100;
-    NSInteger f = 1000;
-    CGFloat e = 0;
+    NSString *stopCode = @"M107 ;fan off\n"
+            "G91 ;relative positioning\n"
+            "G1 E-1 F300 ;retract the filament a bit before lifting the nozzle, to release some of the pressure\n"
+            "G1 Z+0.5 E-5 X-20 Y-20 F9000 ;move Z up a bit and retract filament even more\n"
+            "G28 X0 Y0 ;move X/Y to min endstops, so the head is out of the way\n"
+            "M84 ;disable axes / steppers\n"
+            "G90 ;absolute positioning\n"
+            "M104 S180\n"
+            "M117 Done ;display message (20 characters to clear whole screen)";
+    [self apiPostRequest:stopCode isFirst:@"false"];
+}
 
-//    NSString *s = [NSString stringWithFormat:@"This is a %d test", n];
+- (void)didTapStartButton:(id)didTapStartButton
+{
+    NSString *startCode = @
+            "M109 S220 ;set target temperature\n"
+            "G21 ;metric values\n"
+            "G91 ;relative positioning\n"
+            "M107 ;start with the fan off\n"
+            "G28 X0 Y0 ;move X/Y to min endstops\n"
+            "G28 Z0 ;move Z to min endstops\n"
+            "G1 Z15 F9000 ;move the platform down 15mm\n"
+            "G92 E0 ;zero the extruded length\n"
+            "G1 F200 E10 ;extrude 10mm of feed stock\n"
+            "G92 E0 ;zero the extruded length again\n"
+            "G92 E0 ;zero the extruded length again\n"
+            "G1 F9000\n"
+            "G90 ;absolute positioning\n"
+            "G1 Z0.2\n"
+            "M117 Printing Marijn&Marco   ;display message (20 characters to clear whole screen)',";
 
-    NSString *gcode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", g, x, y, f, e];
-    NSString *first = @"true";
-    [self apiPostRequest:gcode isFirst:first];
+    NSLog(startCode);
+
+    [self apiPostRequest:startCode isFirst:@"true"];
 
 }
 
-
-- (void)startUpPrinter
+- (void)didTapZButton:(id)didTapZButton
 {
-
 }
 
-- (void)closePrinter
+- (void)didTapUpButton:(id)didTapUpButton
 {
+    yPos += 5;
 
+    speed = 1000;
+
+    NSString *gcode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
+
+    if (yPos <= 200)
+    {
+        [self apiPostRequest:gcode isFirst:@"false"];
+    }
+}
+
+- (void)didTapLeftButton:(id)didTapLeftButton
+{
+    xPos -= 5;
+
+    speed = 1000;
+
+    NSString *gcode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
+
+    if (xPos >= 0)
+    {
+        [self apiPostRequest:gcode isFirst:@"false"];
+    }
+}
+
+- (void)didTapRightButton:(id)didTapRightButton
+{
+    xPos += 5;
+
+    speed = 1000;
+
+    NSString *gcode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
+
+    if (xPos <= 200)
+    {
+        [self apiPostRequest:gcode isFirst:@"false"];
+    }
+}
+
+- (void)didTapDownButton:(id)didTapRequestButton
+{
+    yPos -= 5;
+
+    speed = 1000;
+
+    NSString *gcode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
+    NSString *first = @"false";
+
+    if (yPos >= 0)
+    {
+        [self apiPostRequest:gcode isFirst:@"false"];
+    }
 }
 
 - (void)apiPostRequest:(NSString *)gcode isFirst:(NSString *)first
