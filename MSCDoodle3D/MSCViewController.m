@@ -1,32 +1,30 @@
 #import "MSCViewController.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "MSCGCodeStandards.h"
 
 NSInteger xPos;
 NSInteger yPos;
 CGFloat zPos;
 int speed = 2000;
 int buttonTag = 1;
+CGFloat extrusion = 0;
 
 NSString * ipAddress = @"10.1.3.47";
-
 NSInteger stepDistance = 50;
-
-CGFloat extrusion = 0;
-CGFloat wallthickness = 0.5;
-CGFloat layerHeight = 0.2;
-CGFloat filamentThickness = 2.89;
-CGFloat bottomFlowRate = 2.;
-
 bool firstCode;
+
 
 @interface MSCViewController ()
 
+@property(nonatomic, strong) MSCGCodeStandards *gCodeStandards;
 @end
 
 @implementation MSCViewController
 
 - (void)loadView
 {
+    
+    self.gCodeStandards = [[MSCGCodeStandards alloc] init];
     self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.view.backgroundColor = [UIColor blackColor];
 
@@ -74,37 +72,14 @@ bool firstCode;
     
     switch ([sender tag]) {
         case 1:
-            gCode = @
-                "M109 S220 ;set target temperature\n"
-                "G21 ;metric values\n"
-                "G91 ;relative positioning\n"
-                "M107 ;start with the fan off\n"
-                "G28 X0 Y0 ;move X/Y to min endstops\n"
-                "G28 Z0 ;move Z to min endstops\n"
-                "G1 Z15 F9000 ;move the platform down 15mm\n"
-                "G92 E0 ;zero the extruded length\n"
-                "G1 F200 E10 ;extrude 10mm of feed stock\n"
-                "G92 E0 ;zero the extruded length again\n"
-                "G92 E0 ;zero the extruded length again\n"
-                "G1 F9000\n"
-                "G90 ;absolute positioning\n"
-                "G1 Z0.1\n"
-                "M117 Printing Marijn&Marco   ;display message (20 characters to clear whole screen)',";
+            gCode = self.gCodeStandards.startCode;
             break;
         case 2:
-            gCode = @"M107 ;fan off\n"
-                    "G91 ;relative positioning\n"
-                    "G1 E-1 F300 ;retract the filament a bit before lifting the nozzle, to release some of the pressure\n"
-                    "G1 Z+3.5 E-5 X-20 Y-20 F9000 ;move Z up a bit and retract filament even more\n"
-                    "G28 X0 Y0 ;move X/Y to min endstops, so the head is out of the way\n"
-                    "M84 ;disable axes / steppers\n"
-                    "G90 ;absolute positioning\n"
-                    "M104 S180\n"
-                    "M117 Done ;display message (20 characters to clear whole screen)";
+            gCode = self.gCodeStandards.stopCode;
             [self reset];
             break;
         case 3:
-            zPos += layerHeight;
+            zPos += self.gCodeStandards.layerHeight;
             gCode = [NSString stringWithFormat:@"G%d Z%f", 1, zPos];
             break;
         case 4:
@@ -175,8 +150,8 @@ bool firstCode;
     NSInteger dy = targetY - y;
     CGFloat dist = (CGFloat) sqrt(dx * dx + dy * dy);
 
-    CGFloat extruder = (CGFloat) (dist * wallthickness * layerHeight / (pow((filamentThickness * 0.5), 2) * M_PI) * bottomFlowRate);
-
+    CGFloat extruder;
+    extruder = (CGFloat) (dist * self.gCodeStandards.wallthickness * self.gCodeStandards.layerHeight / (pow((self.gCodeStandards.filamentThickness * 0.5), 2) * M_PI) * self.gCodeStandards.bottomFlowRate);
     return extruder;
 }
 @end

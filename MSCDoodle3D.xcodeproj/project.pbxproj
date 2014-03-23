@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0361C765482A494F88382517 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C13F47AB95F3405CAE5E1476 /* libPods.a */; };
+		D197B0BA38AB939757762181 /* MSCGCodeStandards.m in Sources */ = {isa = PBXBuildFile; fileRef = D197B7D5A0B472A09533FBF4 /* MSCGCodeStandards.m */; };
 		D197B1B4EE400F853C08D552 /* MSCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D197BE940C66F5FEC6CFF102 /* MSCViewController.m */; };
 		E6F9152E18DD9E6D00042D60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F9152D18DD9E6D00042D60 /* Foundation.framework */; };
 		E6F9153018DD9E6D00042D60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F9152F18DD9E6D00042D60 /* CoreGraphics.framework */; };
@@ -36,7 +37,9 @@
 /* Begin PBXFileReference section */
 		C13F47AB95F3405CAE5E1476 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D197B5BE86A480CD9F7BA212 /* MSCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCViewController.h; sourceTree = "<group>"; };
+		D197B7D5A0B472A09533FBF4 /* MSCGCodeStandards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCGCodeStandards.m; sourceTree = "<group>"; };
 		D197BE940C66F5FEC6CFF102 /* MSCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCViewController.m; sourceTree = "<group>"; };
+		D197BF3BDECDF8065C958668 /* MSCGCodeStandards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCGCodeStandards.h; sourceTree = "<group>"; };
 		E6F9152A18DD9E6D00042D60 /* MSCDoodle3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSCDoodle3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6F9152D18DD9E6D00042D60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E6F9152F18DD9E6D00042D60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -122,6 +125,8 @@
 				E6F9153418DD9E6D00042D60 /* Supporting Files */,
 				D197BE940C66F5FEC6CFF102 /* MSCViewController.m */,
 				D197B5BE86A480CD9F7BA212 /* MSCViewController.h */,
+				D197B7D5A0B472A09533FBF4 /* MSCGCodeStandards.m */,
+				D197BF3BDECDF8065C958668 /* MSCGCodeStandards.h */,
 			);
 			path = MSCDoodle3D;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				E6F9153E18DD9E6D00042D60 /* MSCAppDelegate.m in Sources */,
 				E6F9153A18DD9E6D00042D60 /* main.m in Sources */,
 				D197B1B4EE400F853C08D552 /* MSCViewController.m in Sources */,
+				D197B0BA38AB939757762181 /* MSCGCodeStandards.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
