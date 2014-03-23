@@ -16,11 +16,10 @@ CGFloat layerHeight = 0.2;
 CGFloat filamentThickness = 2.89;
 CGFloat bottomFlowRate = 2.;
 
+
 @interface MSCViewController ()
 
 @property(nonatomic, strong) UIButton *downButton;
-@property(nonatomic, strong) UITextView *textView;
-
 @property(nonatomic, strong) UIButton *rightButton;
 @property(nonatomic, strong) UIButton *leftButton;
 @property(nonatomic, strong) UIButton *upButton;
@@ -93,7 +92,9 @@ CGFloat bottomFlowRate = 2.;
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
-    [manager POST:@"http://10.1.3.47/d3dapi/printer/print" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSString *URLString = [NSString stringWithFormat:@"http://%@/d3dapi/printer/print", ipAddress];
+
+    [manager POST:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         apiResponse = [NSString stringWithFormat:@"JSON: %@", responseObject];
         NSLog(@"response succes is %@", apiResponse);
     }     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
