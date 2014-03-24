@@ -13,6 +13,7 @@
 @property(nonatomic, strong) NSString *ipAddress;
 @property(nonatomic, strong) D3DPrinterSettings *gCodeStandards;
 @property(nonatomic) NSInteger stepDistance;
+@property(nonatomic) NSInteger speed;
 @end
 
 @implementation D3DPrinterProxy
@@ -26,9 +27,19 @@
         self.gCodeStandards = [[D3DPrinterSettings alloc] init];
         self.ipAddress = ipAddress;
         self.stepDistance = 50;
+        self.speed = 2000;
     }
 
     return self;
+}
+
+- (AFHTTPRequestOperationManager *)requestOperationManager
+{
+    if(!_requestOperationManager)
+    {
+        self.requestOperationManager = [AFHTTPRequestOperationManager manager];
+    }
+    return _requestOperationManager;
 }
 
 - (void)start
@@ -52,13 +63,31 @@
 
 - (void)moveYUp
 {
-   self.yPos += self.stepDistance;
-    NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:self.xPos y:self.yPos speed:0 extrusion:0];
-
+    self.yPos += self.stepDistance;
+    NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:self.xPos y:self.yPos speed:self.speed extrusion:self.extrusion];
+    [self postAPIRequest:gCode];
 }
 
 - (void)moveYDown
 {
+    self.yPos -= self.stepDistance;
+//    self.extrusion += [self calculateExtrusion];
+    NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:self.xPos y:self.yPos speed:self.speed extrusion:self.extrusion];
+    [self postAPIRequest:gCode];
+}
+
+- (void)moveXRight
+{
+    self.xPos += self.stepDistance;
+    NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:self.xPos y:self.yPos speed:self.speed extrusion:self.extrusion];
+    [self postAPIRequest:gCode];
+}
+
+- (void)moveXLeft
+{
+    self.xPos -= self.stepDistance;
+    NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:self.xPos y:self.yPos speed:self.speed extrusion:self.extrusion];
+    [self postAPIRequest:gCode];
 }
 
 - (void)reset
@@ -95,13 +124,13 @@
 
     __block NSString *apiResponse;
 
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
 
     NSString *URLString = [NSString stringWithFormat:@"http://%@/d3dapi/printer/print", self.ipAddress];
-    [manager POST:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.requestOperationManager POST:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         apiResponse = [NSString stringWithFormat:@"JSON: %@", responseObject];
         NSLog(@"response succes is %@", apiResponse);
-    }     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    }                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         apiResponse = [NSString stringWithFormat:@"Error: %@", error];
         NSLog(@"response failure is %@", apiResponse);
     }];
