@@ -1,65 +1,76 @@
-#import "MSCViewController.h"
+#import "D3DRemoteControlViewController.h"
 #import "AFHTTPRequestOperationManager.h"
-#import "MSCGCodeStandards.h"
+#import "D3DCodeStandards.h"
+#import "D3DRemoteControlView.h"
 
 NSInteger xPos;
 NSInteger yPos;
 CGFloat zPos;
 int speed = 2000;
-int buttonTag = 1;
 CGFloat extrusion = 0;
 
-NSString * ipAddress = @"10.1.3.47";
+NSString *ipAddress = @"10.1.3.47";
 NSInteger stepDistance = 50;
-bool firstCode;
+BOOL firstCode;
 
+typedef NS_ENUM(NSInteger, D3DButtonTag)
+{
+    D3DButtonTagStart,
+    D3DButtonTagStop,
+    D3DButtonTagZ,
+    D3DButtonTagUp,
+    D3DButtonTagLeft,
+    D3DButtonTagDown,
+    D3DButtonTagRight
+};
 
-@interface MSCViewController ()
+@interface D3DRemoteControlViewController ()
 
-@property(nonatomic, strong) MSCGCodeStandards *gCodeStandards;
+@property(nonatomic, strong) D3DCodeStandards *gCodeStandards;
+@property(nonatomic, strong) id buttons;
 @end
 
-@implementation MSCViewController
+@implementation D3DRemoteControlViewController
 
 - (void)loadView
 {
-    
-    self.gCodeStandards = [[MSCGCodeStandards alloc] init];
-    self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+
+    self.gCodeStandards = [[D3DCodeStandards alloc] init];
+    self.view = [[D3DRemoteControlView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.view.backgroundColor = [UIColor blackColor];
 
     CGRect startButtonFrame = CGRectMake((320 - 100) * 0.5, 100, 100, 47);
-    [self createButtonWithTitle:@"Start" withFrame:startButtonFrame];
+    [self createButtonWithTitle:@"Start" frame:startButtonFrame tag:D3DButtonTagStart];
 
     CGRect stopButtonFrame = CGRectMake((320 - 100) * 0.5, 500, 100, 47);
-    [self createButtonWithTitle:@"Stop" withFrame:stopButtonFrame];
+    [self createButtonWithTitle:@"Stop" frame:stopButtonFrame tag:D3DButtonTagStop];
 
     CGRect zButtonFrame = CGRectMake((320 - 100) * 0.5, 300, 100, 47);
-    [self createButtonWithTitle:@"Z" withFrame:zButtonFrame];
+    [self createButtonWithTitle:@"Z" frame:zButtonFrame tag:D3DButtonTagZ];
 
     CGRect upButtonFrame = CGRectMake((320 - 100) * 0.5, 200, 100, 47);
-    [self createButtonWithTitle:@"^" withFrame:upButtonFrame];
+    [self createButtonWithTitle:@"^" frame:upButtonFrame tag:D3DButtonTagUp];
 
     CGRect leftButtonFrame = CGRectMake(0, 300, 100, 47);
-    [self createButtonWithTitle:@"<" withFrame:leftButtonFrame];
-
-    CGRect rightButtonFrame = CGRectMake(220, 300, 100, 47);
-    [self createButtonWithTitle:@">" withFrame:rightButtonFrame];
+    [self createButtonWithTitle:@"<" frame:leftButtonFrame tag:D3DButtonTagLeft];
 
     CGRect downButtonFrame = CGRectMake((320 - 100) * 0.5, 400, 100, 47);
-    [self createButtonWithTitle:@"v" withFrame:downButtonFrame];
+    [self createButtonWithTitle:@"v" frame:downButtonFrame tag:D3DButtonTagDown];
+
+    CGRect rightButtonFrame = CGRectMake(220, 300, 100, 47);
+    [self createButtonWithTitle:@">" frame:rightButtonFrame tag:D3DButtonTagRight];
 }
 
-- (void)createButtonWithTitle:(NSString *)string withFrame:(CGRect)frame
+- (UIButton *)createButtonWithTitle:(NSString *)string frame:(CGRect)frame tag:(D3DButtonTag)tag
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = frame;
     button.backgroundColor = [UIColor blackColor];
     [button setTitle:string forState:UIControlStateNormal];
-    button.tag = buttonTag;
+    button.tag = tag;
     [button addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchDown];
-    buttonTag++;
     [self.view addSubview:button];
+    return button;
 }
 
 - (void)didTapButton:(id)sender
@@ -69,45 +80,45 @@ bool firstCode;
     NSInteger currentY = yPos;
 
     NSLog(@"sender tag %d", [sender tag]);
-    
-    switch ([sender tag]) {
-        case 1:
+
+    D3DButtonTag buttonTag = (D3DButtonTag) [sender tag];
+
+    switch (buttonTag)
+    {
+        case D3DButtonTagStart:
             gCode = self.gCodeStandards.startCode;
             break;
-        case 2:
+        case D3DButtonTagStop:
             gCode = self.gCodeStandards.stopCode;
             [self reset];
             break;
-        case 3:
+        case D3DButtonTagZ:
             zPos += self.gCodeStandards.layerHeight;
             gCode = [NSString stringWithFormat:@"G%d Z%f", 1, zPos];
             break;
-        case 4:
+        case D3DButtonTagUp:
             yPos += stepDistance;
             extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
             gCode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
             break;
-        case 5:
+        case D3DButtonTagLeft:
             xPos -= stepDistance;
             extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
             gCode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
             break;
-        case 6:
-            xPos += stepDistance;
-            extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
-            gCode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
-            break;
-        case 7:
+        case D3DButtonTagDown:
             yPos -= stepDistance;
             extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
             gCode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
             break;
-        default:
-            NSLog(@"default case");
+        case D3DButtonTagRight:
+            xPos += stepDistance;
+            extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
+            gCode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
             break;
     }
 
-    if(xPos >=0 && xPos <=200 && yPos >=0 && xPos <= 200)
+    if (xPos >= 0 && xPos <= 200 && yPos >= 0 && xPos <= 200)
     {
         [self apiPostRequest:gCode isFirst:firstCode];
     }
@@ -133,7 +144,6 @@ bool firstCode;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
     NSString *URLString = [NSString stringWithFormat:@"http://%@/d3dapi/printer/print", ipAddress];
-
     [manager POST:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         apiResponse = [NSString stringWithFormat:@"JSON: %@", responseObject];
         NSLog(@"response succes is %@", apiResponse);
@@ -141,6 +151,7 @@ bool firstCode;
         apiResponse = [NSString stringWithFormat:@"Error: %@", error];
         NSLog(@"response failure is %@", apiResponse);
     }];
+
     firstCode = NO;
 }
 
@@ -154,4 +165,5 @@ bool firstCode;
     extruder = (CGFloat) (dist * self.gCodeStandards.wallthickness * self.gCodeStandards.layerHeight / (pow((self.gCodeStandards.filamentThickness * 0.5), 2) * M_PI) * self.gCodeStandards.bottomFlowRate);
     return extruder;
 }
+
 @end

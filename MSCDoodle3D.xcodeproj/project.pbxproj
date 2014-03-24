@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0361C765482A494F88382517 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C13F47AB95F3405CAE5E1476 /* libPods.a */; };
-		D197B0BA38AB939757762181 /* MSCGCodeStandards.m in Sources */ = {isa = PBXBuildFile; fileRef = D197B7D5A0B472A09533FBF4 /* MSCGCodeStandards.m */; };
-		D197B1B4EE400F853C08D552 /* MSCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D197BE940C66F5FEC6CFF102 /* MSCViewController.m */; };
+		D197B02252D52575048CB66A /* D3DRemoteControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = D197BA7FBBEC80C4940FE0F6 /* D3DRemoteControlView.m */; };
+		D197BF73DB66D056746965FB /* D3DPrinterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = D197B6E9679DEAF9E5328642 /* D3DPrinterProxy.m */; };
+		E62ED7F218E031000060B4C7 /* D3DAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E62ED7ED18E031000060B4C7 /* D3DAppDelegate.m */; };
+		E62ED7F318E031000060B4C7 /* D3DCodeStandards.m in Sources */ = {isa = PBXBuildFile; fileRef = E62ED7EF18E031000060B4C7 /* D3DCodeStandards.m */; };
+		E62ED7F418E031000060B4C7 /* D3DRemoteControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E62ED7F118E031000060B4C7 /* D3DRemoteControlViewController.m */; };
 		E6F9152E18DD9E6D00042D60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F9152D18DD9E6D00042D60 /* Foundation.framework */; };
 		E6F9153018DD9E6D00042D60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F9152F18DD9E6D00042D60 /* CoreGraphics.framework */; };
 		E6F9153218DD9E6D00042D60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F9153118DD9E6D00042D60 /* UIKit.framework */; };
 		E6F9153818DD9E6D00042D60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E6F9153618DD9E6D00042D60 /* InfoPlist.strings */; };
 		E6F9153A18DD9E6D00042D60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F9153918DD9E6D00042D60 /* main.m */; };
-		E6F9153E18DD9E6D00042D60 /* MSCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F9153D18DD9E6D00042D60 /* MSCAppDelegate.m */; };
 		E6F9154018DD9E6D00042D60 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6F9153F18DD9E6D00042D60 /* Images.xcassets */; };
 		E6F9154718DD9E6D00042D60 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F9154618DD9E6D00042D60 /* XCTest.framework */; };
 		E6F9154818DD9E6D00042D60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F9152D18DD9E6D00042D60 /* Foundation.framework */; };
@@ -36,10 +38,16 @@
 
 /* Begin PBXFileReference section */
 		C13F47AB95F3405CAE5E1476 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D197B5BE86A480CD9F7BA212 /* MSCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCViewController.h; sourceTree = "<group>"; };
-		D197B7D5A0B472A09533FBF4 /* MSCGCodeStandards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCGCodeStandards.m; sourceTree = "<group>"; };
-		D197BE940C66F5FEC6CFF102 /* MSCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCViewController.m; sourceTree = "<group>"; };
-		D197BF3BDECDF8065C958668 /* MSCGCodeStandards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCGCodeStandards.h; sourceTree = "<group>"; };
+		D197B55DE1325DB3C060ECBB /* D3DRemoteControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DRemoteControlView.h; sourceTree = "<group>"; };
+		D197B6E9679DEAF9E5328642 /* D3DPrinterProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DPrinterProxy.m; sourceTree = "<group>"; };
+		D197B747212293E11CC6456A /* D3DPrinterProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DPrinterProxy.h; sourceTree = "<group>"; };
+		D197BA7FBBEC80C4940FE0F6 /* D3DRemoteControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DRemoteControlView.m; sourceTree = "<group>"; };
+		E62ED7EC18E031000060B4C7 /* D3DAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DAppDelegate.h; sourceTree = "<group>"; };
+		E62ED7ED18E031000060B4C7 /* D3DAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DAppDelegate.m; sourceTree = "<group>"; };
+		E62ED7EE18E031000060B4C7 /* D3DCodeStandards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DCodeStandards.h; sourceTree = "<group>"; };
+		E62ED7EF18E031000060B4C7 /* D3DCodeStandards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DCodeStandards.m; sourceTree = "<group>"; };
+		E62ED7F018E031000060B4C7 /* D3DRemoteControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DRemoteControlViewController.h; sourceTree = "<group>"; };
+		E62ED7F118E031000060B4C7 /* D3DRemoteControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DRemoteControlViewController.m; sourceTree = "<group>"; };
 		E6F9152A18DD9E6D00042D60 /* MSCDoodle3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSCDoodle3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6F9152D18DD9E6D00042D60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E6F9152F18DD9E6D00042D60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,8 +56,6 @@
 		E6F9153718DD9E6D00042D60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E6F9153918DD9E6D00042D60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E6F9153B18DD9E6D00042D60 /* MSCDoodle3D-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSCDoodle3D-Prefix.pch"; sourceTree = "<group>"; };
-		E6F9153C18DD9E6D00042D60 /* MSCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSCAppDelegate.h; sourceTree = "<group>"; };
-		E6F9153D18DD9E6D00042D60 /* MSCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSCAppDelegate.m; sourceTree = "<group>"; };
 		E6F9153F18DD9E6D00042D60 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E6F9154518DD9E6D00042D60 /* MSCDoodle3DTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSCDoodle3DTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6F9154618DD9E6D00042D60 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -84,6 +90,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E62ED7EB18E031000060B4C7 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				E62ED7EC18E031000060B4C7 /* D3DAppDelegate.h */,
+				E62ED7ED18E031000060B4C7 /* D3DAppDelegate.m */,
+				E62ED7EE18E031000060B4C7 /* D3DCodeStandards.h */,
+				E62ED7EF18E031000060B4C7 /* D3DCodeStandards.m */,
+				E62ED7F018E031000060B4C7 /* D3DRemoteControlViewController.h */,
+				E62ED7F118E031000060B4C7 /* D3DRemoteControlViewController.m */,
+				D197BA7FBBEC80C4940FE0F6 /* D3DRemoteControlView.m */,
+				D197B55DE1325DB3C060ECBB /* D3DRemoteControlView.h */,
+				D197B6E9679DEAF9E5328642 /* D3DPrinterProxy.m */,
+				D197B747212293E11CC6456A /* D3DPrinterProxy.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		E6F9152118DD9E6D00042D60 = {
 			isa = PBXGroup;
 			children = (
@@ -119,14 +142,9 @@
 		E6F9153318DD9E6D00042D60 /* MSCDoodle3D */ = {
 			isa = PBXGroup;
 			children = (
-				E6F9153C18DD9E6D00042D60 /* MSCAppDelegate.h */,
-				E6F9153D18DD9E6D00042D60 /* MSCAppDelegate.m */,
+				E62ED7EB18E031000060B4C7 /* Source */,
 				E6F9153F18DD9E6D00042D60 /* Images.xcassets */,
 				E6F9153418DD9E6D00042D60 /* Supporting Files */,
-				D197BE940C66F5FEC6CFF102 /* MSCViewController.m */,
-				D197B5BE86A480CD9F7BA212 /* MSCViewController.h */,
-				D197B7D5A0B472A09533FBF4 /* MSCGCodeStandards.m */,
-				D197BF3BDECDF8065C958668 /* MSCGCodeStandards.h */,
 			);
 			path = MSCDoodle3D;
 			sourceTree = "<group>";
@@ -291,10 +309,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6F9153E18DD9E6D00042D60 /* MSCAppDelegate.m in Sources */,
+				E62ED7F418E031000060B4C7 /* D3DRemoteControlViewController.m in Sources */,
+				E62ED7F318E031000060B4C7 /* D3DCodeStandards.m in Sources */,
+				E62ED7F218E031000060B4C7 /* D3DAppDelegate.m in Sources */,
 				E6F9153A18DD9E6D00042D60 /* main.m in Sources */,
-				D197B1B4EE400F853C08D552 /* MSCViewController.m in Sources */,
-				D197B0BA38AB939757762181 /* MSCGCodeStandards.m in Sources */,
+				D197B02252D52575048CB66A /* D3DRemoteControlView.m in Sources */,
+				D197BF73DB66D056746965FB /* D3DPrinterProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

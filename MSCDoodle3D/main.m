@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MSCAppDelegate.h"
+#import "D3DAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MSCAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([D3DAppDelegate class]));
     }
 }

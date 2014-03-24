@@ -1,6 +1,6 @@
-#import "MSCGCodeStandards.h"
+#import "D3DCodeStandards.h"
 
-@implementation MSCGCodeStandards
+@implementation D3DCodeStandards
 
 - (CGFloat)wallthickness
 {
@@ -19,26 +19,12 @@
 
 - (CGFloat)bottomFlowRate
 {
-    return 2.;
-}
-
-- (NSString *)stopCode
-{
-    return @"M107 ;fan off\n"
-            "G91 ;relative positioning\n"
-            "G1 E-1 F300 ;retract the filament a bit before lifting the nozzle, to release some of the pressure\n"
-            "G1 Z+3.5 E-5 X-20 Y-20 F9000 ;move Z up a bit and retract filament even more\n"
-            "G28 X0 Y0 ;move X/Y to min endstops, so the head is out of the way\n"
-            "M84 ;disable axes / steppers\n"
-            "G90 ;absolute positioning\n"
-            "M104 S180\n"
-            "M117 Done ;display message (20 characters to clear whole screen)";
+    return 2.0;
 }
 
 - (NSString *)startCode
 {
-    return @
-            "M109 S220 ;set target temperature\n"
+    return @"M109 S220 ;set target temperature\n"
             "G21 ;metric values\n"
             "G91 ;relative positioning\n"
             "M107 ;start with the fan off\n"
@@ -53,6 +39,19 @@
             "G90 ;absolute positioning\n"
             "G1 Z0.1\n"
             "M117 Printing Marijn&Marco   ;display message (20 characters to clear whole screen)',";
+}
+
+- (NSString *)stopCode
+{
+    return @"M107 ;fan off\n"
+            "G91 ;relative positioning\n"
+            "G1 E-1 F300 ;retract the filament a bit before lifting the nozzle, to release some of the pressure\n"
+            "G1 Z+3.5 E-5 X-20 Y-20 F9000 ;move Z up a bit and retract filament even more\n"
+            "G28 X0 Y0 ;move X/Y to min endstops, so the head is out of the way\n"
+            "M84 ;disable axes / steppers\n"
+            "G90 ;absolute positioning\n"
+            "M104 S180\n"
+            "M117 Done ;display message (20 characters to clear whole screen)";
 }
 
 @end

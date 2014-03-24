@@ -1,5 +1,5 @@
 //
-//  MSCAppDelegate.h
+//  D3DAppDelegate.h
 //  MSCDoodle3D
 //
 //  Created by Marijn Schilling on 22/03/14.
@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class MSCViewController;
+@class D3DRemoteControlViewController;
 
-@interface MSCAppDelegate : UIResponder <UIApplicationDelegate>
+@interface D3DAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

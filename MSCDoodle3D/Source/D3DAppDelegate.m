@@ -1,26 +1,26 @@
 //
-//  MSCAppDelegate.m
+//  D3DAppDelegate.m
 //  MSCDoodle3D
 //
 //  Created by Marijn Schilling on 22/03/14.
 //  Copyright (c) 2014 Marijn Schilling. All rights reserved.
 //
 
-#import "MSCAppDelegate.h"
-#import "MSCViewController.h"
+#import "D3DAppDelegate.h"
+#import "D3DRemoteControlViewController.h"
 
-@interface MSCAppDelegate ()
-@property(nonatomic, strong) MSCViewController *mscViewController;
+@interface D3DAppDelegate ()
+@property(nonatomic, strong) D3DRemoteControlViewController *mscViewController;
 @end
 
-@implementation MSCAppDelegate
+@implementation D3DAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.tintColor = [UIColor blackColor];
-    self.mscViewController = [[MSCViewController alloc] init];
+    self.mscViewController = [[D3DRemoteControlViewController alloc] init];
 
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.mscViewController];
 

@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface MSCGCodeStandards : NSObject
+@interface D3DCodeStandards : NSObject
 
 @property(nonatomic, readonly)CGFloat wallthickness;
 @property(nonatomic, readonly)CGFloat layerHeight;
