@@ -12,6 +12,7 @@
 @property(nonatomic) CGFloat extrusion;
 @property(nonatomic, strong) NSString *ipAddress;
 @property(nonatomic, strong) D3DPrinterSettings *gCodeStandards;
+@property(nonatomic) NSInteger stepDistance;
 @end
 
 @implementation D3DPrinterProxy
@@ -24,6 +25,7 @@
     {
         self.gCodeStandards = [[D3DPrinterSettings alloc] init];
         self.ipAddress = ipAddress;
+        self.stepDistance = 50;
     }
 
     return self;
@@ -41,11 +43,22 @@
     [self postAPIRequest:gCode];
 }
 
-- (void)moveUp
+- (void)moveZ
 {
     self.zPos += self.gCodeStandards.layerHeight;
     NSString *gCode = [D3DGCodeGenerator moveCodeWithZ:self.zPos];
     [self postAPIRequest:gCode];
+}
+
+- (void)moveYUp
+{
+   self.yPos += self.stepDistance;
+    NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:self.xPos y:self.yPos speed:0 extrusion:0];
+
+}
+
+- (void)moveYDown
+{
 }
 
 - (void)reset
@@ -93,6 +106,5 @@
         NSLog(@"response failure is %@", apiResponse);
     }];
 }
-
 
 @end

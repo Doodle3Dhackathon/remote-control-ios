@@ -9,5 +9,9 @@
 
 - (void)stop;
 
-- (void)moveUp;
+- (void)moveZ;
+
+- (void)moveYUp;
+
+- (void)moveYDown;
 @end

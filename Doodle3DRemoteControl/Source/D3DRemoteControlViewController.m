@@ -105,12 +105,11 @@ typedef NS_ENUM(NSInteger, D3DButtonTag)
             [self.printerProxy stop];
             break;
         case D3DButtonTagZ:
-            [self.printerProxy moveUp];
+            [self.printerProxy moveZ];
             break;
         case D3DButtonTagUp:
-            yPos += stepDistance;
-//            extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
-            gCode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
+            [self.printerProxy moveYUp];
+
             break;
         case D3DButtonTagLeft:
             xPos -= stepDistance;
@@ -118,6 +117,7 @@ typedef NS_ENUM(NSInteger, D3DButtonTag)
             gCode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
             break;
         case D3DButtonTagDown:
+            [self.printerProxy moveYDown];
             yPos -= stepDistance;
 //            extrusion += [self calculateExtrusionWithtargetX:xPos targetY:yPos currentX:currentX currentY:currentY];
             gCode = [NSString stringWithFormat:@"G%d X%d Y%d F%d, E%f", 1, xPos, yPos, speed, extrusion];
