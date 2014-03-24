@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3">
+   <BuildAction>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForRunning = "YES"
+            buildForTesting = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E62ED85918E0758B0060B4C7"
+               BuildableName = "Doodle3DRemoteControlTests.xctest"
+               BlueprintName = "Doodle3DRemoteControlTests"
+               ReferencedContainer = "container:Doodle3DRemoteControl.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug">
+      <Testables>
+         <TestableReference>
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E62ED85918E0758B0060B4C7"
+               BuildableName = "Doodle3DRemoteControlTests.xctest"
+               BlueprintName = "Doodle3DRemoteControlTests"
+               ReferencedContainer = "container:Doodle3DRemoteControl.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      useCustomWorkingDirectory = "NO">
+   </LaunchAction>
+</Scheme>

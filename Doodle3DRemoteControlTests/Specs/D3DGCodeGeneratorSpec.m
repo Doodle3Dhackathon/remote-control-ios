@@ -9,15 +9,26 @@
 #import <Kiwi/Kiwi.h>
 #import "D3DGCodeGenerator.h"
 
-
 SPEC_BEGIN(D3DGCodeGeneratorSpec)
 
-describe(@"D3DGCodeGenerator", ^{
+        describe(@"D3DGCodeGenerator", ^{
 
-    it(@"works", ^{
-        [[theValue(YES) should] beNo];
-    });
+            context(@"start code", ^{
 
-});
+                __block NSString *sut;
 
-SPEC_END
+                beforeEach(^{
+                    sut = [D3DGCodeGenerator startCode];
+                });
+
+                it(@"starts with heat-up code", ^{
+                    [[sut should] startWithString:@"M109"];
+                });
+
+                it(@"contains console message", ^{
+                    [[sut should] containString:@"M117"];
+                });
+            });
+        });
+
+        SPEC_END
