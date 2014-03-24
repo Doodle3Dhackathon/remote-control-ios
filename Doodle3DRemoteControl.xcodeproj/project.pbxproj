@@ -7,18 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65AE43C6863D44609932E21C /* libPods-Doodle3DRemoteControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7E30C7700743FA8B1F422C /* libPods-Doodle3DRemoteControl.a */; };
+		8F9111993A6B4F6A953421DB /* libPods-Doodle3DRemoteControlTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B69916CF68E420AB147FF52 /* libPods-Doodle3DRemoteControlTests.a */; };
 		E62ED84318E0758B0060B4C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62ED84218E0758B0060B4C7 /* Foundation.framework */; };
 		E62ED84518E0758B0060B4C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62ED84418E0758B0060B4C7 /* CoreGraphics.framework */; };
 		E62ED84718E0758B0060B4C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62ED84618E0758B0060B4C7 /* UIKit.framework */; };
 		E62ED84D18E0758B0060B4C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E62ED84B18E0758B0060B4C7 /* InfoPlist.strings */; };
 		E62ED84F18E0758B0060B4C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E62ED84E18E0758B0060B4C7 /* main.m */; };
-		E62ED85318E0758B0060B4C7 /* D3DAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E62ED85218E0758B0060B4C7 /* D3DAppDelegate.m */; };
 		E62ED85518E0758B0060B4C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E62ED85418E0758B0060B4C7 /* Images.xcassets */; };
 		E62ED85C18E0758B0060B4C7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62ED85B18E0758B0060B4C7 /* XCTest.framework */; };
 		E62ED85D18E0758B0060B4C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62ED84218E0758B0060B4C7 /* Foundation.framework */; };
 		E62ED85E18E0758B0060B4C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62ED84618E0758B0060B4C7 /* UIKit.framework */; };
 		E62ED86618E0758B0060B4C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E62ED86418E0758B0060B4C7 /* InfoPlist.strings */; };
-		E62ED86818E0758B0060B4C7 /* Doodle3DRemoteControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E62ED86718E0758B0060B4C7 /* Doodle3DRemoteControlTests.m */; };
+		E63D15B618E076FF00CE3BD2 /* D3DAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15AB18E076FF00CE3BD2 /* D3DAppDelegate.m */; };
+		E63D15B718E076FF00CE3BD2 /* D3DGCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15AD18E076FF00CE3BD2 /* D3DGCodeGenerator.m */; };
+		E63D15B818E076FF00CE3BD2 /* D3DPrinterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15AF18E076FF00CE3BD2 /* D3DPrinterProxy.m */; };
+		E63D15B918E076FF00CE3BD2 /* D3DPrinterSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15B118E076FF00CE3BD2 /* D3DPrinterSettings.m */; };
+		E63D15BA18E076FF00CE3BD2 /* D3DRemoteControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15B318E076FF00CE3BD2 /* D3DRemoteControlView.m */; };
+		E63D15BB18E076FF00CE3BD2 /* D3DRemoteControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15B518E076FF00CE3BD2 /* D3DRemoteControlViewController.m */; };
+		E63D15C018E0771C00CE3BD2 /* D3DTestsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15BD18E0771C00CE3BD2 /* D3DTestsAppDelegate.m */; };
+		E63D15C118E0771C00CE3BD2 /* D3DGCodeGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15BF18E0771C00CE3BD2 /* D3DGCodeGeneratorSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A7E30C7700743FA8B1F422C /* libPods-Doodle3DRemoteControl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Doodle3DRemoteControl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B69916CF68E420AB147FF52 /* libPods-Doodle3DRemoteControlTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Doodle3DRemoteControlTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		220EFFF430604E1094642B01 /* Pods-Doodle3DRemoteControlTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doodle3DRemoteControlTests.xcconfig"; path = "Pods/Pods-Doodle3DRemoteControlTests.xcconfig"; sourceTree = "<group>"; };
+		84CE4AA4240944B8AF5C6021 /* Pods-Doodle3DRemoteControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doodle3DRemoteControl.xcconfig"; path = "Pods/Pods-Doodle3DRemoteControl.xcconfig"; sourceTree = "<group>"; };
 		E62ED83F18E0758B0060B4C7 /* Doodle3DRemoteControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doodle3DRemoteControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E62ED84218E0758B0060B4C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E62ED84418E0758B0060B4C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -40,14 +52,26 @@
 		E62ED84C18E0758B0060B4C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E62ED84E18E0758B0060B4C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E62ED85018E0758B0060B4C7 /* Doodle3DRemoteControl-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Doodle3DRemoteControl-Prefix.pch"; sourceTree = "<group>"; };
-		E62ED85118E0758B0060B4C7 /* D3DAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = D3DAppDelegate.h; sourceTree = "<group>"; };
-		E62ED85218E0758B0060B4C7 /* D3DAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = D3DAppDelegate.m; sourceTree = "<group>"; };
 		E62ED85418E0758B0060B4C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E62ED85A18E0758B0060B4C7 /* Doodle3DRemoteControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Doodle3DRemoteControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E62ED85B18E0758B0060B4C7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		E62ED86318E0758B0060B4C7 /* Doodle3DRemoteControlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Doodle3DRemoteControlTests-Info.plist"; sourceTree = "<group>"; };
 		E62ED86518E0758B0060B4C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E62ED86718E0758B0060B4C7 /* Doodle3DRemoteControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Doodle3DRemoteControlTests.m; sourceTree = "<group>"; };
+		E63D15AA18E076FF00CE3BD2 /* D3DAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DAppDelegate.h; sourceTree = "<group>"; };
+		E63D15AB18E076FF00CE3BD2 /* D3DAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DAppDelegate.m; sourceTree = "<group>"; };
+		E63D15AC18E076FF00CE3BD2 /* D3DGCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DGCodeGenerator.h; sourceTree = "<group>"; };
+		E63D15AD18E076FF00CE3BD2 /* D3DGCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DGCodeGenerator.m; sourceTree = "<group>"; };
+		E63D15AE18E076FF00CE3BD2 /* D3DPrinterProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DPrinterProxy.h; sourceTree = "<group>"; };
+		E63D15AF18E076FF00CE3BD2 /* D3DPrinterProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DPrinterProxy.m; sourceTree = "<group>"; };
+		E63D15B018E076FF00CE3BD2 /* D3DPrinterSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DPrinterSettings.h; sourceTree = "<group>"; };
+		E63D15B118E076FF00CE3BD2 /* D3DPrinterSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DPrinterSettings.m; sourceTree = "<group>"; };
+		E63D15B218E076FF00CE3BD2 /* D3DRemoteControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DRemoteControlView.h; sourceTree = "<group>"; };
+		E63D15B318E076FF00CE3BD2 /* D3DRemoteControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DRemoteControlView.m; sourceTree = "<group>"; };
+		E63D15B418E076FF00CE3BD2 /* D3DRemoteControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DRemoteControlViewController.h; sourceTree = "<group>"; };
+		E63D15B518E076FF00CE3BD2 /* D3DRemoteControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DRemoteControlViewController.m; sourceTree = "<group>"; };
+		E63D15BC18E0771C00CE3BD2 /* D3DTestsAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DTestsAppDelegate.h; sourceTree = "<group>"; };
+		E63D15BD18E0771C00CE3BD2 /* D3DTestsAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DTestsAppDelegate.m; sourceTree = "<group>"; };
+		E63D15BF18E0771C00CE3BD2 /* D3DGCodeGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DGCodeGeneratorSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +82,7 @@
 				E62ED84518E0758B0060B4C7 /* CoreGraphics.framework in Frameworks */,
 				E62ED84718E0758B0060B4C7 /* UIKit.framework in Frameworks */,
 				E62ED84318E0758B0060B4C7 /* Foundation.framework in Frameworks */,
+				65AE43C6863D44609932E21C /* libPods-Doodle3DRemoteControl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +93,7 @@
 				E62ED85C18E0758B0060B4C7 /* XCTest.framework in Frameworks */,
 				E62ED85E18E0758B0060B4C7 /* UIKit.framework in Frameworks */,
 				E62ED85D18E0758B0060B4C7 /* Foundation.framework in Frameworks */,
+				8F9111993A6B4F6A953421DB /* libPods-Doodle3DRemoteControlTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +107,8 @@
 				E62ED86118E0758B0060B4C7 /* Doodle3DRemoteControlTests */,
 				E62ED84118E0758B0060B4C7 /* Frameworks */,
 				E62ED84018E0758B0060B4C7 /* Products */,
+				84CE4AA4240944B8AF5C6021 /* Pods-Doodle3DRemoteControl.xcconfig */,
+				220EFFF430604E1094642B01 /* Pods-Doodle3DRemoteControlTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +128,8 @@
 				E62ED84418E0758B0060B4C7 /* CoreGraphics.framework */,
 				E62ED84618E0758B0060B4C7 /* UIKit.framework */,
 				E62ED85B18E0758B0060B4C7 /* XCTest.framework */,
+				0A7E30C7700743FA8B1F422C /* libPods-Doodle3DRemoteControl.a */,
+				0B69916CF68E420AB147FF52 /* libPods-Doodle3DRemoteControlTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -107,9 +137,8 @@
 		E62ED84818E0758B0060B4C7 /* Doodle3DRemoteControl */ = {
 			isa = PBXGroup;
 			children = (
-				E62ED85118E0758B0060B4C7 /* D3DAppDelegate.h */,
-				E62ED85218E0758B0060B4C7 /* D3DAppDelegate.m */,
 				E62ED85418E0758B0060B4C7 /* Images.xcassets */,
+				E63D15A918E076FF00CE3BD2 /* Source */,
 				E62ED84918E0758B0060B4C7 /* Supporting Files */,
 			);
 			path = Doodle3DRemoteControl;
@@ -129,7 +158,9 @@
 		E62ED86118E0758B0060B4C7 /* Doodle3DRemoteControlTests */ = {
 			isa = PBXGroup;
 			children = (
-				E62ED86718E0758B0060B4C7 /* Doodle3DRemoteControlTests.m */,
+				E63D15BC18E0771C00CE3BD2 /* D3DTestsAppDelegate.h */,
+				E63D15BD18E0771C00CE3BD2 /* D3DTestsAppDelegate.m */,
+				E63D15BE18E0771C00CE3BD2 /* Specs */,
 				E62ED86218E0758B0060B4C7 /* Supporting Files */,
 			);
 			path = Doodle3DRemoteControlTests;
@@ -144,6 +175,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E63D15A918E076FF00CE3BD2 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				E63D15AA18E076FF00CE3BD2 /* D3DAppDelegate.h */,
+				E63D15AB18E076FF00CE3BD2 /* D3DAppDelegate.m */,
+				E63D15AC18E076FF00CE3BD2 /* D3DGCodeGenerator.h */,
+				E63D15AD18E076FF00CE3BD2 /* D3DGCodeGenerator.m */,
+				E63D15AE18E076FF00CE3BD2 /* D3DPrinterProxy.h */,
+				E63D15AF18E076FF00CE3BD2 /* D3DPrinterProxy.m */,
+				E63D15B018E076FF00CE3BD2 /* D3DPrinterSettings.h */,
+				E63D15B118E076FF00CE3BD2 /* D3DPrinterSettings.m */,
+				E63D15B218E076FF00CE3BD2 /* D3DRemoteControlView.h */,
+				E63D15B318E076FF00CE3BD2 /* D3DRemoteControlView.m */,
+				E63D15B418E076FF00CE3BD2 /* D3DRemoteControlViewController.h */,
+				E63D15B518E076FF00CE3BD2 /* D3DRemoteControlViewController.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		E63D15BE18E0771C00CE3BD2 /* Specs */ = {
+			isa = PBXGroup;
+			children = (
+				E63D15BF18E0771C00CE3BD2 /* D3DGCodeGeneratorSpec.m */,
+			);
+			path = Specs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,9 +209,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E62ED86B18E0758B0060B4C7 /* Build configuration list for PBXNativeTarget "Doodle3DRemoteControl" */;
 			buildPhases = (
+				175083475A1646CDB4944726 /* Check Pods Manifest.lock */,
 				E62ED83B18E0758B0060B4C7 /* Sources */,
 				E62ED83C18E0758B0060B4C7 /* Frameworks */,
 				E62ED83D18E0758B0060B4C7 /* Resources */,
+				0D4F2DCDF1E14CB79092339C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,9 +228,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E62ED86E18E0758B0060B4C7 /* Build configuration list for PBXNativeTarget "Doodle3DRemoteControlTests" */;
 			buildPhases = (
+				FF2B2893724147AEADE61EBC /* Check Pods Manifest.lock */,
 				E62ED85618E0758B0060B4C7 /* Sources */,
 				E62ED85718E0758B0060B4C7 /* Frameworks */,
 				E62ED85818E0758B0060B4C7 /* Resources */,
+				3537A57213F2408AB5F6EAC1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,13 +297,81 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D4F2DCDF1E14CB79092339C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-Doodle3DRemoteControl-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		175083475A1646CDB4944726 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3537A57213F2408AB5F6EAC1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-Doodle3DRemoteControlTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF2B2893724147AEADE61EBC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E62ED83B18E0758B0060B4C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E62ED85318E0758B0060B4C7 /* D3DAppDelegate.m in Sources */,
+				E63D15BA18E076FF00CE3BD2 /* D3DRemoteControlView.m in Sources */,
+				E63D15B718E076FF00CE3BD2 /* D3DGCodeGenerator.m in Sources */,
+				E63D15B818E076FF00CE3BD2 /* D3DPrinterProxy.m in Sources */,
+				E63D15B618E076FF00CE3BD2 /* D3DAppDelegate.m in Sources */,
+				E63D15B918E076FF00CE3BD2 /* D3DPrinterSettings.m in Sources */,
 				E62ED84F18E0758B0060B4C7 /* main.m in Sources */,
+				E63D15BB18E076FF00CE3BD2 /* D3DRemoteControlViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +379,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E62ED86818E0758B0060B4C7 /* Doodle3DRemoteControlTests.m in Sources */,
+				E63D15C018E0771C00CE3BD2 /* D3DTestsAppDelegate.m in Sources */,
+				E63D15C118E0771C00CE3BD2 /* D3DGCodeGeneratorSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +486,7 @@
 		};
 		E62ED86C18E0758B0060B4C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84CE4AA4240944B8AF5C6021 /* Pods-Doodle3DRemoteControl.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -368,6 +500,7 @@
 		};
 		E62ED86D18E0758B0060B4C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84CE4AA4240944B8AF5C6021 /* Pods-Doodle3DRemoteControl.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -381,6 +514,7 @@
 		};
 		E62ED86F18E0758B0060B4C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 220EFFF430604E1094642B01 /* Pods-Doodle3DRemoteControlTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Doodle3DRemoteControl.app/Doodle3DRemoteControl";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -403,6 +537,7 @@
 		};
 		E62ED87018E0758B0060B4C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 220EFFF430604E1094642B01 /* Pods-Doodle3DRemoteControlTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Doodle3DRemoteControl.app/Doodle3DRemoteControl";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -438,6 +573,7 @@
 				E62ED86D18E0758B0060B4C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E62ED86E18E0758B0060B4C7 /* Build configuration list for PBXNativeTarget "Doodle3DRemoteControlTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +582,7 @@
 				E62ED87018E0758B0060B4C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
