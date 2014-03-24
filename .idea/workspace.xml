@@ -23,64 +23,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="D3DRemoteControlViewController.m" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="D3DGCodeGenerator.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DGCodeGenerator.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="48" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1345">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="D3DRemoteControlViewController.m" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DRemoteControlViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="12" selection-start="2793" selection-end="2793" vertical-scroll-proportion="0.30993152" vertical-offset="1139" max-vertical-offset="3104">
+            <state line="134" column="5" selection-start="4632" selection-end="4632" vertical-scroll-proportion="0.0" vertical-offset="1409" max-vertical-offset="2853">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NSDate.h" pinned="false" current="false" current-in-tab="false">
-        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDate.h">
+      <file leaf-file-name="D3DTestsAppDelegate.h" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSCDoodle3DTests/D3DTestsAppDelegate.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="29" selection-start="236" selection-end="250" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1489">
+            <state line="5" column="0" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="820">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="D3DRemoteControlView.h" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DRemoteControlView.h">
+      <file leaf-file-name="D3DGCodeGeneratorSpec.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSCDoodle3DTests/Specs/D3DGCodeGeneratorSpec.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="40" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="619">
+            <state line="17" column="38" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1098">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="D3DRemoteControlView.m" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DRemoteControlView.m">
+      <file leaf-file-name="Podfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Podfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="634">
+            <state line="8" column="3" selection-start="148" selection-end="148" vertical-scroll-proportion="0.15625" vertical-offset="0" max-vertical-offset="873">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="D3DPrinterProxy.h" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DPrinterProxy.h">
+      <file leaf-file-name="D3DTestsAppDelegate.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSCDoodle3DTests/D3DTestsAppDelegate.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="619">
+            <state line="10" column="73" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="956">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="D3DPrinterProxy.m" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DPrinterProxy.m">
+      <file leaf-file-name="D3DAppDelegate.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DAppDelegate.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="649">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="D3DCodeStandards.m" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DCodeStandards.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="23" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1414">
+            <state line="29" column="1" selection-start="372" selection-end="991" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1602">
               <folding />
             </state>
           </provider>
@@ -89,16 +89,7 @@
       <file leaf-file-name="D3DAppDelegate.h" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DAppDelegate.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="829">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="D3DCodeStandards.h" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DCodeStandards.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="739">
+            <state line="12" column="11" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="985">
               <folding />
             </state>
           </provider>
@@ -107,7 +98,7 @@
       <file leaf-file-name="main.m" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSCDoodle3D/main.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="300">
+            <state line="19" column="75" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1076">
               <folding />
             </state>
           </provider>
@@ -123,26 +114,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/MSCDoodle3D/MSCAppDelegate.m" />
-        <option value="$PROJECT_DIR$/MSCDoodle3D/MSCgCodeStandards.m" />
-        <option value="$PROJECT_DIR$/MSCDoodle3D/MSCgCodeStandards.h" />
-        <option value="$PROJECT_DIR$/MSCDoodle3D/MSCGCodeStandards.m" />
-        <option value="$PROJECT_DIR$/MSCDoodle3D/MSCViewController.m" />
-        <option value="$PROJECT_DIR$/MSCDoodle3D/Source/MSCGCodeStandards.m" />
-        <option value="$PROJECT_DIR$/MSCDoodle3D/Source/MSCViewController.m" />
-        <option value="$PROJECT_DIR$/MSCDoodle3D/Source/D3DRemoteControlView.h" />
-        <option value="$PROJECT_DIR$/MSCDoodle3D/Source/D3DRemoteControlView.m" />
         <option value="$PROJECT_DIR$/MSCDoodle3D/Source/D3DAppDelegate.h" />
         <option value="$PROJECT_DIR$/MSCDoodle3D/Source/D3DCodeStandards.h" />
+        <option value="$PROJECT_DIR$/MSCDoodle3D/Source/D3DGCodeStandards.m" />
+        <option value="$PROJECT_DIR$/MSCDoodle3D/Source/GCode" />
+        <option value="$PROJECT_DIR$/MSCDoodle3D/Source/D3DPrinterSettings.m" />
+        <option value="$PROJECT_DIR$/MSCDoodle3D/Source/D3DPrinterSettings.h" />
+        <option value="$PROJECT_DIR$/MSCDoodle3D/Source/D3DGCodeGenerator.h" />
+        <option value="$PROJECT_DIR$/MSCDoodle3D/Source/D3DPrinterProxy.m" />
+        <option value="$PROJECT_DIR$/MSCDoodle3D/Source/D3DGCodeGenerator.m" />
+        <option value="$PROJECT_DIR$/MSCDoodle3D/main.m" />
+        <option value="$PROJECT_DIR$/MSCDoodle3DTests/D3DTestsAppDelegate.m" />
+        <option value="$PROJECT_DIR$/MSCDoodle3DTests/D3DTestsAppDelegate.h" />
+        <option value="$PROJECT_DIR$/Podfile" />
+        <option value="$PROJECT_DIR$/MSCDoodle3DTests/MSCDoodle3DTests.m" />
+        <option value="$PROJECT_DIR$/MSCDoodle3DTests/Specs/D3DGCodeGeneratorSpec.m" />
         <option value="$PROJECT_DIR$/MSCDoodle3D/Source/D3DRemoteControlViewController.m" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-66" />
-    <option name="y" value="-1141" />
-    <option name="width" value="1680" />
-    <option name="height" value="1024" />
+    <option name="x" value="-58" />
+    <option name="y" value="-1178" />
+    <option name="width" value="1920" />
+    <option name="height" value="1178" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -189,24 +184,6 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Pods" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pods" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AFNetworking" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="MSCDoodle3D" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
             </PATH_ELEMENT>
@@ -235,7 +212,57 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="MSCDoodle3DTests" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="MSCDoodle3D" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSCDoodle3DTests" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Specs" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSCDoodle3D" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSCDoodle3D" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSCDoodle3D" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSCDoodle3D" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Supporting Files" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -257,6 +284,20 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MSCDoodle3D" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Frameworks" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -265,11 +306,17 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="preferences.keymap" />
-    <property name="OBJC.PRESERVED_TARGET_SELECTION" value="MSCDoodle3D" />
+    <property name="OBJC.PRESERVED_TARGET_SELECTION" value="MSCDoodle3DTests" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
-  <component name="RunManager" selected="Application.MSCDoodle3D">
+  <component name="RunManager" selected="XCTest/Kiwi.All in D3DGCodeGeneratorSpec">
+    <configuration default="false" name="All in D3DGCodeGeneratorSpec" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" temporary="true" SCHEME_NAME="All in D3DGCodeGeneratorSpec" PROJECT_NAME="MSCDoodle3D" TARGET_NAME="MSCDoodle3DTests" CONFIG_NAME="Debug" PASS_PARENT_ENVS="FALSE" TEST_CLASS="D3DGCodeGeneratorSpec" TEST_MODE="SUITE_TEST">
+      <envs />
+      <RunnerSettings RunnerId="AppRunner" />
+      <ConfigurationWrapper RunnerId="AppRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="AppleRunConfiguration" factoryName="Application" PROJECT_NAME="MSCDoodle3D" TARGET_NAME="MSCDoodle3D" CONFIG_NAME="Debug" PASS_PARENT_ENVS="FALSE" RUN_TARGET_PROJECT_NAME="MSCDoodle3D" RUN_TARGET_NAME="MSCDoodle3D" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
       <envs />
       <method />
@@ -288,19 +335,35 @@
       <ConfigurationWrapper RunnerId="AppRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="Pods-AFNetworking" type="AppleRunConfiguration" factoryName="Application" SCHEME_NAME="Pods-AFNetworking" PROJECT_NAME="Pods" TARGET_NAME="Pods-AFNetworking" CONFIG_NAME="Debug" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+    <configuration default="false" name="Pods-MSCDoodle3D-AFNetworking" type="AppleRunConfiguration" factoryName="Application" SCHEME_NAME="Pods-MSCDoodle3D-AFNetworking" PROJECT_NAME="Pods" TARGET_NAME="Pods-MSCDoodle3D-AFNetworking" CONFIG_NAME="Debug" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Pods" type="AppleRunConfiguration" factoryName="Application" SCHEME_NAME="Pods" PROJECT_NAME="Pods" TARGET_NAME="Pods" CONFIG_NAME="Debug" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+    <configuration default="false" name="Pods-MSCDoodle3D" type="AppleRunConfiguration" factoryName="Application" SCHEME_NAME="Pods-MSCDoodle3D" PROJECT_NAME="Pods" TARGET_NAME="Pods-MSCDoodle3D" CONFIG_NAME="Debug" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
       <envs />
       <method />
     </configuration>
-    <list size="3">
+    <configuration default="false" name="Pods-MSCDoodle3DTests-Kiwi" type="AppleRunConfiguration" factoryName="Application" SCHEME_NAME="Pods-MSCDoodle3DTests-Kiwi" PROJECT_NAME="Pods" TARGET_NAME="Pods-MSCDoodle3DTests-Kiwi" CONFIG_NAME="Debug" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Pods-MSCDoodle3DTests" type="AppleRunConfiguration" factoryName="Application" SCHEME_NAME="Pods-MSCDoodle3DTests" PROJECT_NAME="Pods" TARGET_NAME="Pods-MSCDoodle3DTests" CONFIG_NAME="Debug" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <method />
+    </configuration>
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.MSCDoodle3D" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Pods-AFNetworking" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Pods" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Pods-MSCDoodle3D-AFNetworking" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Pods-MSCDoodle3D" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Pods-MSCDoodle3DTests-Kiwi" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Pods-MSCDoodle3DTests" />
+      <item index="5" class="java.lang.String" itemvalue="XCTest/Kiwi.All in D3DGCodeGeneratorSpec" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="XCTest/Kiwi.All in D3DGCodeGeneratorSpec" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
@@ -312,16 +375,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-66" y="-1141" width="1680" height="1024" extended-state="6" />
-    <editor active="false" />
+    <frame x="-58" y="-1178" width="1920" height="1178" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277487" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28223625" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984293" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32912534" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.66492146" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33507854" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21875" sideWeight="0.7177637" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33507854" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984293" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -348,62 +411,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DAppDelegate.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="106" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="915">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DRemoteControlViewController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="4" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="90">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DRemoteControlViewController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Pods/AFNetworking/AFNetworking/AFHTTPRequestOperationManager.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="95" selection-start="5864" selection-end="5870" vertical-scroll-proportion="0.0" vertical-offset="1936" max-vertical-offset="4183">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/main.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="733">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DAppDelegate.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="44" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1498">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DCodeStandards.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="23" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1414">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDate.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="29" selection-start="236" selection-end="250" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1489">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DRemoteControlView.h">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="40" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="619">
@@ -411,51 +418,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DRemoteControlView.m">
+    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DPrinterSettings.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="634">
+        <state line="23" column="0" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="929">
+          <folding>
+            <marker date="1395667499000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1395667499000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1395667499000" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DPrinterSettings.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="297" selection-end="297" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="726">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DPrinterProxy.m">
+    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DGCodeGenerator.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="649">
+        <state line="5" column="1" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="681">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DPrinterProxy.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="619">
+        <state line="7" column="8" selection-start="157" selection-end="157" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="873">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DPrinterProxy.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="32" selection-start="1165" selection-end="1165" vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="2195">
+          <folding>
+            <marker date="1395669422000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1395669422000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1395669422000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1395669422000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1395669422000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1395669422000" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/main.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="75" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1128">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DAppDelegate.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="1" selection-start="372" selection-end="991" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1602">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DAppDelegate.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="625">
+        <state line="12" column="11" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="985">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DCodeStandards.h">
+    <entry file="file://$PROJECT_DIR$/MSCDoodle3DTests/D3DTestsAppDelegate.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="739">
+        <state line="5" column="0" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="820">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DRemoteControlViewController.h">
+    <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DGCodeGenerator.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="11" selection-start="72" selection-end="72" vertical-scroll-proportion="0.10186757" vertical-offset="0" max-vertical-offset="649">
+        <state line="38" column="48" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1368">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSCDoodle3DTests/D3DTestsAppDelegate.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="73" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="985">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MSCDoodle3DTests/Specs/D3DGCodeGeneratorSpec.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="38" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1098">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MSCDoodle3D/Source/D3DRemoteControlViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="12" selection-start="2793" selection-end="2793" vertical-scroll-proportion="0.30993152" vertical-offset="1139" max-vertical-offset="3104">
+        <state line="134" column="5" selection-start="4632" selection-end="4632" vertical-scroll-proportion="0.0" vertical-offset="1409" max-vertical-offset="2853">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Podfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="3" selection-start="148" selection-end="148" vertical-scroll-proportion="0.15625" vertical-offset="0" max-vertical-offset="873">
           <folding />
         </state>
       </provider>

@@ -13,6 +13,13 @@
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
+
+        BOOL runningTests = (NSClassFromString(@"D3DTestsAppDelegate") != nil);
+        if (runningTests)
+        {
+            return UIApplicationMain(argc, argv, nil, @"D3DTestsAppDelegate");
+        }
+
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([D3DAppDelegate class]));
     }
 }
