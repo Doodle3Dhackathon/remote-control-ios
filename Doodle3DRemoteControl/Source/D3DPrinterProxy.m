@@ -3,7 +3,6 @@
 #import "D3DPrinterSettings.h"
 #import "D3DPrinterProxy.h"
 #import "D3DPrinterSettings.h"
-#import "D3DGCodeGenerator.h"
 
 @interface D3DPrinterProxy ()
 @property(nonatomic) CGFloat xPos;
@@ -46,20 +45,20 @@
 
 - (void)start
 {
-    NSString *gCode = [D3DGCodeGenerator startCode];
+    NSString *gCode = [D3DPrinterSettings startCode];
     [self postAPIRequest:gCode isStartCode:YES ];
 }
 
 - (void)stop
 {
-    NSString *gCode = [D3DGCodeGenerator stopCode];
+    NSString *gCode = [D3DPrinterSettings stopCode];
     [self postAPIRequest:gCode];
 }
 
 - (void)moveZ
 {
     self.zPos += self.printerSettings.layerHeight;
-    NSString *gCode = [D3DGCodeGenerator moveCodeWithZ:self.zPos];
+    NSString *gCode = [self.printerSettings codeToMoveZ:self.zPos];
     [self postAPIRequest:gCode];
 }
 
@@ -67,11 +66,11 @@
 {
     self.currentY = self.yPos;
     self.yPos += self.stepDistance;
-    self.extrusion += [self.printerSettings calculateExtrusionWithTargetX:self.xPos
-                                                                  targetY:self.yPos
-                                                                 currentX:self.currentX
-                                                                 currentY:self.currentY];
-    NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:self.xPos y:self.yPos speed:self.speed extrusion:self.extrusion];
+    NSString *gCode = [self.printerSettings codeToMoveToX:self.xPos
+                                                        y:self.yPos
+                                                    fromX:self.currentX
+                                                        y:self.currentY
+                                                    speed:self.speed];
     [self postAPIRequest:gCode];
 }
 
@@ -79,11 +78,11 @@
 {
     self.currentY = self.yPos;
     self.yPos -= self.stepDistance;
-    self.extrusion += [self.printerSettings calculateExtrusionWithTargetX:self.xPos
-                                                                  targetY:self.yPos
-                                                                 currentX:self.currentX
-                                                                 currentY:self.currentY];
-    NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:self.xPos y:self.yPos speed:self.speed extrusion:self.extrusion];
+    NSString *gCode = [self.printerSettings codeToMoveToX:self.xPos
+                                                        y:self.yPos
+                                                    fromX:self.currentX
+                                                        y:self.currentY
+                                                    speed:self.speed];
     [self postAPIRequest:gCode];
 }
 
@@ -91,24 +90,24 @@
 {
     self.currentX = self.xPos;
     self.xPos += self.stepDistance;
-    self.extrusion += [self.printerSettings calculateExtrusionWithTargetX:self.xPos
-                                                                  targetY:self.yPos
-                                                                 currentX:self.currentX
-                                                                 currentY:self.currentY];
-    NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:self.xPos y:self.yPos speed:self.speed extrusion:self.extrusion];
+    NSString *gCode = [self.printerSettings codeToMoveToX:self.xPos
+                                                        y:self.yPos
+                                                    fromX:self.currentX
+                                                        y:self.currentY
+                                                    speed:self.speed];
     [self postAPIRequest:gCode];
 }
 
 - (void)moveXLeft
 {
-
+    self.currentX = self.xPos;
     self.xPos -= self.stepDistance;
 
-    self.extrusion += [self.printerSettings calculateExtrusionWithTargetX:self.xPos
-                                                                  targetY:self.yPos
-                                                                 currentX:self.currentX
-                                                                 currentY:self.currentY];
-    NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:self.xPos y:self.yPos speed:self.speed extrusion:self.extrusion];
+    NSString *gCode = [self.printerSettings codeToMoveToX:self.xPos
+                                                        y:self.yPos
+                                                    fromX:self.currentX
+                                                        y:self.currentY
+                                                    speed:self.speed];
     [self postAPIRequest:gCode];
 }
 

@@ -2,7 +2,6 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "D3DPrinterSettings.h"
 #import "D3DRemoteControlView.h"
-#import "D3DGCodeGenerator.h"
 #import "D3DPrinterProxy.h"
 #import "D3DPrinterProxy.h"
 

@@ -22,13 +22,11 @@
 		E62ED85E18E0758B0060B4C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62ED84618E0758B0060B4C7 /* UIKit.framework */; };
 		E62ED86618E0758B0060B4C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E62ED86418E0758B0060B4C7 /* InfoPlist.strings */; };
 		E63D15B618E076FF00CE3BD2 /* D3DAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15AB18E076FF00CE3BD2 /* D3DAppDelegate.m */; };
-		E63D15B718E076FF00CE3BD2 /* D3DGCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15AD18E076FF00CE3BD2 /* D3DGCodeGenerator.m */; };
 		E63D15B818E076FF00CE3BD2 /* D3DPrinterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15AF18E076FF00CE3BD2 /* D3DPrinterProxy.m */; };
 		E63D15B918E076FF00CE3BD2 /* D3DPrinterSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15B118E076FF00CE3BD2 /* D3DPrinterSettings.m */; };
 		E63D15BA18E076FF00CE3BD2 /* D3DRemoteControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15B318E076FF00CE3BD2 /* D3DRemoteControlView.m */; };
 		E63D15BB18E076FF00CE3BD2 /* D3DRemoteControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15B518E076FF00CE3BD2 /* D3DRemoteControlViewController.m */; };
 		E63D15C018E0771C00CE3BD2 /* D3DTestsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15BD18E0771C00CE3BD2 /* D3DTestsAppDelegate.m */; };
-		E63D15C118E0771C00CE3BD2 /* D3DGCodeGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E63D15BF18E0771C00CE3BD2 /* D3DGCodeGeneratorSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +61,6 @@
 		E62ED86518E0758B0060B4C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E63D15AA18E076FF00CE3BD2 /* D3DAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DAppDelegate.h; sourceTree = "<group>"; };
 		E63D15AB18E076FF00CE3BD2 /* D3DAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DAppDelegate.m; sourceTree = "<group>"; };
-		E63D15AC18E076FF00CE3BD2 /* D3DGCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DGCodeGenerator.h; sourceTree = "<group>"; };
-		E63D15AD18E076FF00CE3BD2 /* D3DGCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DGCodeGenerator.m; sourceTree = "<group>"; };
 		E63D15AE18E076FF00CE3BD2 /* D3DPrinterProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DPrinterProxy.h; sourceTree = "<group>"; };
 		E63D15AF18E076FF00CE3BD2 /* D3DPrinterProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DPrinterProxy.m; sourceTree = "<group>"; };
 		E63D15B018E076FF00CE3BD2 /* D3DPrinterSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DPrinterSettings.h; sourceTree = "<group>"; };
@@ -75,7 +71,6 @@
 		E63D15B518E076FF00CE3BD2 /* D3DRemoteControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DRemoteControlViewController.m; sourceTree = "<group>"; };
 		E63D15BC18E0771C00CE3BD2 /* D3DTestsAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3DTestsAppDelegate.h; sourceTree = "<group>"; };
 		E63D15BD18E0771C00CE3BD2 /* D3DTestsAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DTestsAppDelegate.m; sourceTree = "<group>"; };
-		E63D15BF18E0771C00CE3BD2 /* D3DGCodeGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3DGCodeGeneratorSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,8 +179,6 @@
 			children = (
 				E63D15AA18E076FF00CE3BD2 /* D3DAppDelegate.h */,
 				E63D15AB18E076FF00CE3BD2 /* D3DAppDelegate.m */,
-				E63D15AC18E076FF00CE3BD2 /* D3DGCodeGenerator.h */,
-				E63D15AD18E076FF00CE3BD2 /* D3DGCodeGenerator.m */,
 				E63D15AE18E076FF00CE3BD2 /* D3DPrinterProxy.h */,
 				E63D15AF18E076FF00CE3BD2 /* D3DPrinterProxy.m */,
 				E63D15B018E076FF00CE3BD2 /* D3DPrinterSettings.h */,
@@ -201,7 +194,6 @@
 		E63D15BE18E0771C00CE3BD2 /* Specs */ = {
 			isa = PBXGroup;
 			children = (
-				E63D15BF18E0771C00CE3BD2 /* D3DGCodeGeneratorSpec.m */,
 				D197B227262C900667140B1E /* D3DPrinterProxySpec.m */,
 				D197B6AD6FBD5B230AFDFCA1 /* D3DPrinterSettingsSpec.m */,
 			);
@@ -372,7 +364,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E63D15BA18E076FF00CE3BD2 /* D3DRemoteControlView.m in Sources */,
-				E63D15B718E076FF00CE3BD2 /* D3DGCodeGenerator.m in Sources */,
 				E63D15B818E076FF00CE3BD2 /* D3DPrinterProxy.m in Sources */,
 				E63D15B618E076FF00CE3BD2 /* D3DAppDelegate.m in Sources */,
 				E63D15B918E076FF00CE3BD2 /* D3DPrinterSettings.m in Sources */,
@@ -386,7 +377,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E63D15C018E0771C00CE3BD2 /* D3DTestsAppDelegate.m in Sources */,
-				E63D15C118E0771C00CE3BD2 /* D3DGCodeGeneratorSpec.m in Sources */,
 				D197B2A0721E9014D7EA1891 /* D3DPrinterProxySpec.m in Sources */,
 				D197B4D031F5B50358B6ECF1 /* D3DPrinterSettingsSpec.m in Sources */,
 			);
