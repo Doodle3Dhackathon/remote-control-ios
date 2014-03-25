@@ -7,4 +7,5 @@
 @property(nonatomic, readonly) CGFloat filamentThickness;
 @property(nonatomic, readonly) CGFloat bottomFlowRate;
 
+- (CGFloat)calculateExtrusionWithTargetX:(CGFloat)targetX targetY:(CGFloat)targetY currentX:(CGFloat)x currentY:(CGFloat)y;
 @end

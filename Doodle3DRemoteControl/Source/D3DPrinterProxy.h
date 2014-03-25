@@ -21,5 +21,4 @@
 
 - (void)moveXLeft;
 
-- (CGFloat)calculateExtrusionWithtargetX:(NSInteger)targetX targetY:(NSInteger)targetY currentX:(NSInteger)x currentY:(NSInteger)y;
 @end

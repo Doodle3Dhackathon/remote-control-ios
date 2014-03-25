@@ -51,7 +51,7 @@ SPEC_BEGIN(D3DGCodeGeneratorSpec)
             context(@"move z-axis", ^{
                
                 it(@"starts with moving the z axis with 0.2", ^{
-                    [[[D3DGCodeGenerator moveCodeWithZ:0.2] should] startWithString:@"G1 Z0.2"];
+                    [[[D3DGCodeGenerator moveCodeWithZ:0.2] should] startWithString:@"G1 Z0.200"];
                 });
             });
 
@@ -59,7 +59,7 @@ SPEC_BEGIN(D3DGCodeGeneratorSpec)
 
                 it(@"generates move code", ^{
                     NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:10 y:11.5 speed:12 extrusion:13.5];
-                    [[gCode should] equal:@"G1 X10.0 Y11.5 F12, E13.5"];
+                    [[gCode should] equal:@"G1 X10.000 Y11.500 F12.000, E13.500"];
                 });
             });
         });

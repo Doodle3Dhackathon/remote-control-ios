@@ -7,5 +7,5 @@
 
 + (NSString *)moveCodeWithZ:(CGFloat)z;
 
-+ (NSString *)generateMoveCodeForX:(CGFloat)x y:(CGFloat)y speed:(NSInteger)speed extrusion:(CGFloat)extrusion;
++ (NSString *)generateMoveCodeForX:(CGFloat)x y:(CGFloat)y speed:(CGFloat)speed extrusion:(CGFloat)extrusion;
 @end

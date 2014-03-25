@@ -11,9 +11,11 @@
 @property(nonatomic) CGFloat zPos;
 @property(nonatomic) CGFloat extrusion;
 @property(nonatomic, strong) NSString *ipAddress;
-@property(nonatomic, strong) D3DPrinterSettings *gCodeStandards;
+@property(nonatomic, strong) D3DPrinterSettings *printerSettings;
 @property(nonatomic) NSInteger stepDistance;
-@property(nonatomic) NSInteger speed;
+@property(nonatomic) CGFloat speed;
+@property(nonatomic) CGFloat currentX;
+@property(nonatomic) CGFloat currentY;
 @end
 
 @implementation D3DPrinterProxy
@@ -24,7 +26,7 @@
 
     if (self)
     {
-        self.gCodeStandards = [[D3DPrinterSettings alloc] init];
+        self.printerSettings = [[D3DPrinterSettings alloc] init];
         self.ipAddress = ipAddress;
         self.stepDistance = 50;
         self.speed = 2000;
@@ -56,57 +58,58 @@
 
 - (void)moveZ
 {
-    self.zPos += self.gCodeStandards.layerHeight;
+    self.zPos += self.printerSettings.layerHeight;
     NSString *gCode = [D3DGCodeGenerator moveCodeWithZ:self.zPos];
     [self postAPIRequest:gCode];
 }
 
 - (void)moveYUp
 {
+    self.currentY = self.yPos;
     self.yPos += self.stepDistance;
+    self.extrusion += [self.printerSettings calculateExtrusionWithTargetX:self.xPos
+                                                                  targetY:self.yPos
+                                                                 currentX:self.currentX
+                                                                 currentY:self.currentY];
     NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:self.xPos y:self.yPos speed:self.speed extrusion:self.extrusion];
     [self postAPIRequest:gCode];
 }
 
 - (void)moveYDown
 {
+    self.currentY = self.yPos;
     self.yPos -= self.stepDistance;
-//    self.extrusion += [self calculateExtrusion];
+    self.extrusion += [self.printerSettings calculateExtrusionWithTargetX:self.xPos
+                                                                  targetY:self.yPos
+                                                                 currentX:self.currentX
+                                                                 currentY:self.currentY];
     NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:self.xPos y:self.yPos speed:self.speed extrusion:self.extrusion];
     [self postAPIRequest:gCode];
 }
 
 - (void)moveXRight
 {
+    self.currentX = self.xPos;
     self.xPos += self.stepDistance;
+    self.extrusion += [self.printerSettings calculateExtrusionWithTargetX:self.xPos
+                                                                  targetY:self.yPos
+                                                                 currentX:self.currentX
+                                                                 currentY:self.currentY];
     NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:self.xPos y:self.yPos speed:self.speed extrusion:self.extrusion];
     [self postAPIRequest:gCode];
 }
 
 - (void)moveXLeft
 {
+
     self.xPos -= self.stepDistance;
+
+    self.extrusion += [self.printerSettings calculateExtrusionWithTargetX:self.xPos
+                                                                  targetY:self.yPos
+                                                                 currentX:self.currentX
+                                                                 currentY:self.currentY];
     NSString *gCode = [D3DGCodeGenerator generateMoveCodeForX:self.xPos y:self.yPos speed:self.speed extrusion:self.extrusion];
     [self postAPIRequest:gCode];
-}
-
-- (void)reset
-{
-    self.xPos = 0.0;
-    self.yPos = 0.0;
-    self.zPos = 0.0;
-    self.extrusion = 0.0;
-}
-
-- (CGFloat)calculateExtrusionWithtargetX:(NSInteger)targetX targetY:(NSInteger)targetY currentX:(NSInteger)x currentY:(NSInteger)y
-{
-    NSInteger dx = targetX - x;
-    NSInteger dy = targetY - y;
-    CGFloat dist = (CGFloat) sqrt(dx * dx + dy * dy);
-
-    CGFloat extruder;
-    extruder = (CGFloat) (dist * self.gCodeStandards.wallthickness * self.gCodeStandards.layerHeight / (pow((self.gCodeStandards.filamentThickness * 0.5), 2) * M_PI) * self.gCodeStandards.bottomFlowRate);
-    return extruder;
 }
 
 - (void)postAPIRequest:(NSString *)gcode

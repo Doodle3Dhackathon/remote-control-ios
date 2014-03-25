@@ -40,8 +40,8 @@
 
 }
 
-+ (NSString *)generateMoveCodeForX:(CGFloat)x y:(CGFloat)y speed:(NSInteger)speed extrusion:(CGFloat)extrusion
++ (NSString *)generateMoveCodeForX:(CGFloat)x y:(CGFloat)y speed:(CGFloat)speed extrusion:(CGFloat)extrusion
 {
-    return [NSString stringWithFormat:@"G1 X%.1f Y%.1f F%d, E%.1f", x, y, speed, extrusion];
+    return [NSString stringWithFormat:@"G1 X%.3f Y%.3f F%.3f, E%.3f", x, y, speed, extrusion];
 }
 @end
