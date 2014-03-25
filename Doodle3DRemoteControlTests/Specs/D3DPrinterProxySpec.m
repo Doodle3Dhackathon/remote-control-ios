@@ -63,6 +63,15 @@ SPEC_BEGIN(D3DPrinterProxySpec)
                         [proxy moveYUp];
                     });
                 });
+
+                describe(@"stay within boundaries", ^{
+
+                    it(@"doesn't post a request when the move goes out of bounds", ^{
+                        proxy.requestOperationManager = [AFHTTPRequestOperationManager mock];
+                        [proxy moveYDown];
+
+                    });
+                });
             });
         });
 

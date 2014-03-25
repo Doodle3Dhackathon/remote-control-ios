@@ -88,24 +88,25 @@
 
 - (void)postAPIRequest:(NSString *)gcode isStartCode:(BOOL)isStartCode
 {
-    NSDictionary *parameters = @{
-            @"start" : @"true",
-            @"first" : isStartCode ? @"true" : @"false",
-            @"gcode" : gcode
-    };
+    if(gcode)
+    {
+        NSDictionary *parameters = @{
+                @"start" : @"true",
+                @"first" : isStartCode ? @"true" : @"false",
+                @"gcode" : gcode
+        };
 
-    __block NSString *apiResponse;
+        __block NSString *apiResponse;
 
-
-
-    NSString *URLString = [NSString stringWithFormat:@"http://%@/d3dapi/printer/print", self.ipAddress];
-    [self.requestOperationManager POST:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        apiResponse = [NSString stringWithFormat:@"JSON: %@", responseObject];
-        NSLog(@"response succes is %@", apiResponse);
-    }                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        apiResponse = [NSString stringWithFormat:@"Error: %@", error];
-        NSLog(@"response failure is %@", apiResponse);
-    }];
+        NSString *URLString = [NSString stringWithFormat:@"http://%@/d3dapi/printer/print", self.ipAddress];
+        [self.requestOperationManager POST:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            apiResponse = [NSString stringWithFormat:@"JSON: %@", responseObject];
+            NSLog(@"response succes is %@", apiResponse);
+        }                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            apiResponse = [NSString stringWithFormat:@"Error: %@", error];
+            NSLog(@"response failure is %@", apiResponse);
+        }];
+    }
 }
 
 @end
