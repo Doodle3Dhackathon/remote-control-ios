@@ -84,9 +84,7 @@ SPEC_BEGIN(D3DPrinterSettingsSpec)
             });
 
             describe(@"boundaries", ^{
-
-                it(@"accepts moves within the boundaries", ^{
-
+                it(@"accepts moves within bounds", ^{
                     NSString *gCode = [sut codeToMoveRelativeX:50 y:0 speed:2000];
                     [[gCode should] equal:@"G1 X50.000 Y0.000 F2000.000, E1.524"];
 
@@ -95,6 +93,38 @@ SPEC_BEGIN(D3DPrinterSettingsSpec)
 
                     gCode = [sut codeToMoveRelativeX:0 y:200 speed:2000];
                     [[gCode should] equal:@"G1 X200.000 Y200.000 F2000.000, E12.196"];
+                });
+
+                it(@"rejects moves out of left bounds", ^{
+                    NSString *gCode = [sut codeToMoveRelativeX:-1 y:0 speed:2000];
+                    [[gCode should] beNil];
+
+                    gCode = [sut codeToMoveRelativeX:50 y:0 speed:2000];
+                    [[gCode should] equal:@"G1 X50.000 Y0.000 F2000.000, E1.524"];
+                });
+
+                it(@"rejects moves out of right bounds", ^{
+                    NSString *gCode = [sut codeToMoveRelativeX:201 y:0 speed:2000];
+                    [[gCode should] beNil];
+
+                    gCode = [sut codeToMoveRelativeX:50 y:0 speed:2000];
+                    [[gCode should] equal:@"G1 X50.000 Y0.000 F2000.000, E1.524"];
+                });
+
+                it(@"rejects moves out of lower bounds", ^{
+                    NSString *gCode = [sut codeToMoveRelativeX:0 y:-1 speed:2000];
+                    [[gCode should] beNil];
+
+                    gCode = [sut codeToMoveRelativeX:50 y:0 speed:2000];
+                    [[gCode should] equal:@"G1 X50.000 Y0.000 F2000.000, E1.524"];
+                });
+
+                it(@"rejects moves out of upper bounds", ^{
+                    NSString *gCode = [sut codeToMoveRelativeX:0 y:201 speed:2000];
+                    [[gCode should] beNil];
+
+                    gCode = [sut codeToMoveRelativeX:50 y:0 speed:2000];
+                    [[gCode should] equal:@"G1 X50.000 Y0.000 F2000.000, E1.524"];
                 });
             });
         });

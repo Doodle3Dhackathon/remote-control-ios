@@ -71,13 +71,17 @@
     newPosition.x += relativeX;
     newPosition.y += relativeY;
 
-
-
-    CGFloat extrusion = [self calculateExtrusionForRelativeX:relativeX y:relativeY];
-    self.extrusion += extrusion;
-    self.position = newPosition;
-
-    return [NSString stringWithFormat:@"G1 X%.3f Y%.3f F%.3f, E%.3f", self.position.x, self.position.y, speed, self.extrusion];
+    if (newPosition.x < 0 || newPosition.x > 200 || newPosition.y < 0 || newPosition.y > 200 )
+    {
+        return nil;
+    }
+    else
+    {
+        CGFloat extrusion = [self calculateExtrusionForRelativeX:relativeX y:relativeY];
+        self.extrusion += extrusion;
+        self.position = newPosition;
+        return [NSString stringWithFormat:@"G1 X%.3f Y%.3f F%.3f, E%.3f", self.position.x, self.position.y, speed, self.extrusion];
+    }
 }
 
 - (CGFloat)calculateExtrusionForRelativeX:(CGFloat)dx y:(CGFloat)dy
