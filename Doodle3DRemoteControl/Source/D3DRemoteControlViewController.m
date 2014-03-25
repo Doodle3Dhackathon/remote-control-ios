@@ -1,18 +1,10 @@
 #import "D3DRemoteControlViewController.h"
-#import "AFHTTPRequestOperationManager.h"
 #import "D3DPrinterSettings.h"
 #import "D3DRemoteControlView.h"
 #import "D3DPrinterProxy.h"
-#import "D3DPrinterProxy.h"
 
-NSInteger xPos;
-NSInteger yPos;
-CGFloat zPos;
 int speed = 2000;
 CGFloat extrusion = 0;
-
-NSInteger stepDistance = 50;
-BOOL firstCode;
 
 typedef NS_ENUM(NSInteger, D3DButtonTag)
 {
@@ -27,7 +19,6 @@ typedef NS_ENUM(NSInteger, D3DButtonTag)
 
 @interface D3DRemoteControlViewController ()
 
-@property(nonatomic, strong) D3DPrinterSettings *gCodeStandards;
 @property(nonatomic, strong) D3DPrinterProxy *printerProxy;
 @end
 
@@ -47,7 +38,6 @@ typedef NS_ENUM(NSInteger, D3DButtonTag)
 
 - (void)loadView
 {
-    self.gCodeStandards = [[D3DPrinterSettings alloc] init];
     self.view = [[D3DRemoteControlView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.view.backgroundColor = [UIColor blackColor];
 
@@ -87,12 +77,6 @@ typedef NS_ENUM(NSInteger, D3DButtonTag)
 
 - (void)didTapButton:(id)sender
 {
-    NSString *gCode;
-    NSInteger currentX = xPos;
-    NSInteger currentY = yPos;
-
-    NSLog(@"sender tag %d", [sender tag]);
-
     D3DButtonTag buttonTag = (D3DButtonTag) [sender tag];
 
     switch (buttonTag)
@@ -118,11 +102,6 @@ typedef NS_ENUM(NSInteger, D3DButtonTag)
         case D3DButtonTagRight:
             [self.printerProxy moveXRight];
             break;
-    }
-
-    if (xPos >= 0 && xPos <= 200 && yPos >= 0 && xPos <= 200)
-    {
-//        [self apiPostRequest:gCode isFirst:firstCode];
     }
 }
 
