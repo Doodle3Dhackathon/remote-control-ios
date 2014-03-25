@@ -55,7 +55,7 @@ SPEC_BEGIN(D3DPrinterProxySpec)
                         NSDictionary *expectParams = @{
                                 @"start" : @"true",
                                 @"first" : @"false",
-                                @"gcode" : @"G1 X50.000 Y50.000 F2000.000, E3.680"
+                                @"gcode" : @"G1 X50.000 Y50.000 F2000.000, E3.049"
                         };
 
                         [[proxy.requestOperationManager should] receive:@selector(POST:parameters:success:failure:)

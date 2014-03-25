@@ -11,10 +11,10 @@
 
 + (NSString *)stopCode;
 
-- (NSString *)codeToMoveZ:(CGFloat)z;
+- (NSString *)codeToMoveZ;
 
-- (NSString *)codeToMoveToX:(CGFloat)x y:(CGFloat)y fromX:(CGFloat)fromX y:(CGFloat)fromY speed:(CGFloat)speed;
+- (NSString *)codeToMoveRelativeX:(CGFloat)relativeX y:(CGFloat)relativeY speed:(CGFloat)speed;
 
-- (CGFloat)calculateExtrusionWithTargetX:(CGFloat)targetX targetY:(CGFloat)targetY currentX:(CGFloat)x currentY:(CGFloat)y;
+- (CGFloat)calculateExtrusionForRelativeX:(CGFloat)dx y:(CGFloat)dy;
 
 @end

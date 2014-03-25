@@ -5,16 +5,12 @@
 #import "D3DPrinterSettings.h"
 
 @interface D3DPrinterProxy ()
-@property(nonatomic) CGFloat xPos;
-@property(nonatomic) CGFloat yPos;
-@property(nonatomic) CGFloat zPos;
+
 @property(nonatomic) CGFloat extrusion;
 @property(nonatomic, strong) NSString *ipAddress;
 @property(nonatomic, strong) D3DPrinterSettings *printerSettings;
 @property(nonatomic) NSInteger stepDistance;
 @property(nonatomic) CGFloat speed;
-@property(nonatomic) CGFloat currentX;
-@property(nonatomic) CGFloat currentY;
 @end
 
 @implementation D3DPrinterProxy
@@ -57,57 +53,31 @@
 
 - (void)moveZ
 {
-    self.zPos += self.printerSettings.layerHeight;
-    NSString *gCode = [self.printerSettings codeToMoveZ:self.zPos];
+    NSString *gCode = [self.printerSettings codeToMoveZ];
     [self postAPIRequest:gCode];
 }
 
 - (void)moveYUp
 {
-    self.currentY = self.yPos;
-    self.yPos += self.stepDistance;
-    NSString *gCode = [self.printerSettings codeToMoveToX:self.xPos
-                                                        y:self.yPos
-                                                    fromX:self.currentX
-                                                        y:self.currentY
-                                                    speed:self.speed];
+    NSString *gCode = [self.printerSettings codeToMoveRelativeX:0 y:self.stepDistance speed:self.speed];
     [self postAPIRequest:gCode];
 }
 
 - (void)moveYDown
 {
-    self.currentY = self.yPos;
-    self.yPos -= self.stepDistance;
-    NSString *gCode = [self.printerSettings codeToMoveToX:self.xPos
-                                                        y:self.yPos
-                                                    fromX:self.currentX
-                                                        y:self.currentY
-                                                    speed:self.speed];
+    NSString *gCode = [self.printerSettings codeToMoveRelativeX:0 y:-self.stepDistance speed:self.speed];
     [self postAPIRequest:gCode];
 }
 
 - (void)moveXRight
 {
-    self.currentX = self.xPos;
-    self.xPos += self.stepDistance;
-    NSString *gCode = [self.printerSettings codeToMoveToX:self.xPos
-                                                        y:self.yPos
-                                                    fromX:self.currentX
-                                                        y:self.currentY
-                                                    speed:self.speed];
+    NSString *gCode = [self.printerSettings codeToMoveRelativeX:self.stepDistance y:0 speed:self.speed];
     [self postAPIRequest:gCode];
 }
 
 - (void)moveXLeft
 {
-    self.currentX = self.xPos;
-    self.xPos -= self.stepDistance;
-
-    NSString *gCode = [self.printerSettings codeToMoveToX:self.xPos
-                                                        y:self.yPos
-                                                    fromX:self.currentX
-                                                        y:self.currentY
-                                                    speed:self.speed];
+    NSString *gCode = [self.printerSettings codeToMoveRelativeX:-self.stepDistance y:0 speed:self.speed];
     [self postAPIRequest:gCode];
 }
 

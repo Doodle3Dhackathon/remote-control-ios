@@ -1,10 +1,14 @@
 #import "D3DPrinterSettings.h"
 
 @interface D3DPrinterSettings ()
+@property(nonatomic) CGFloat x;
+@property(nonatomic) CGFloat y;
+@property(nonatomic) CGFloat z;
 @property(nonatomic, readwrite) CGFloat bottomFlowRate;
 @property(nonatomic, readwrite) CGFloat filamentThickness;
 @property(nonatomic, readwrite) CGFloat layerHeight;
 @property(nonatomic, readwrite) CGFloat wallthickness;
+@property(nonatomic, readwrite) CGFloat extrusion;
 @end
 
 @implementation D3DPrinterSettings
@@ -41,7 +45,6 @@
             "M117 Done ;display message (20 characters to clear whole screen)";
 }
 
-
 - (id)init
 {
     self = [super init];
@@ -57,26 +60,26 @@
     return self;
 }
 
-- (NSString *)codeToMoveZ:(CGFloat)z
+- (NSString *)codeToMoveZ
 {
-    return [NSString stringWithFormat:@"G1 Z%f", z];
+    self.z += self.layerHeight;
+    return [NSString stringWithFormat:@"G1 Z%f", self.z];
 }
 
-- (NSString *)codeToMoveToX:(CGFloat)x y:(CGFloat)y fromX:(CGFloat)fromX y:(CGFloat)fromY speed:(CGFloat)speed
+- (NSString *)codeToMoveRelativeX:(CGFloat)relativeX y:(CGFloat)relativeY speed:(CGFloat)speed
 {
-    CGFloat extrusion = [self calculateExtrusionWithTargetX:x targetY:y currentX:fromX currentY:fromY];
-    return [NSString stringWithFormat:@"G1 X%.3f Y%.3f F%.3f, E%.3f", x, y, speed, extrusion];
+    CGFloat extrusion = [self calculateExtrusionForRelativeX:relativeX y:relativeY];
+    self.x += relativeX;
+    self.y += relativeY;
+    self.extrusion += extrusion;
+
+    return [NSString stringWithFormat:@"G1 X%.3f Y%.3f F%.3f, E%.3f", self.x, self.y, speed, self.extrusion];
 }
 
-- (CGFloat)calculateExtrusionWithTargetX:(CGFloat)targetX targetY:(CGFloat)targetY currentX:(CGFloat)x currentY:(CGFloat)y
+- (CGFloat)calculateExtrusionForRelativeX:(CGFloat)dx y:(CGFloat)dy
 {
-    CGFloat dx = targetX - x;
-    CGFloat dy = targetY - y;
     CGFloat dist = (CGFloat) sqrt(dx * dx + dy * dy);
-
-    CGFloat extruder;
-    extruder = (CGFloat) (dist * self.wallthickness * self.layerHeight / (pow((self.filamentThickness * 0.5), 2) * M_PI) * self.bottomFlowRate);
-    return extruder;
+    return (CGFloat) (dist * self.wallthickness * self.layerHeight / (pow((self.filamentThickness * 0.5), 2) * M_PI) * self.bottomFlowRate);
 }
 
 @end

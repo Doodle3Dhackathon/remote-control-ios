@@ -21,17 +21,18 @@ SPEC_BEGIN(D3DPrinterSettingsSpec)
             });
 
             it(@"calculate's extrusion for movement on x axis", ^{
-                CGFloat extrusion = [sut calculateExtrusionWithTargetX:50 targetY:0 currentX:0 currentY:0];
+                CGFloat extrusion = [sut calculateExtrusionForRelativeX:50 y:0];
+
                 [[theValue(extrusion) should] equal:1.524 withDelta:0.001];
             });
 
             it(@"calculate's extrusion for movement on y axis", ^{
-                CGFloat extrusion = [sut calculateExtrusionWithTargetX:0 targetY:50 currentX:0 currentY:0];
+                CGFloat extrusion = [sut calculateExtrusionForRelativeX:0 y:50];
                 [[theValue(extrusion) should] equal:1.524 withDelta:0.001];
             });
 
-            it(@"calculate's extrusion for double movement  on x axis", ^{
-                CGFloat extrusion = [sut calculateExtrusionWithTargetX:100 targetY:0 currentX:0 currentY:0];
+            it(@"calculate's extrusion for double movement on x axis", ^{
+                CGFloat extrusion = [sut calculateExtrusionForRelativeX:100 y:0];
                 [[theValue(extrusion) should] equal:3.048 withDelta:0.001];
             });
 
@@ -72,11 +73,11 @@ SPEC_BEGIN(D3DPrinterSettingsSpec)
                 });
 
                 it(@"generates the code to move the z-axis", ^{
-                    [[[sut codeToMoveZ:0.2] should] startWithString:@"G1 Z0.200"];
+                    [[[sut codeToMoveZ] should] startWithString:@"G1 Z0.200"];
                 });
 
                 it(@"generates the code to move on the x/y plane", ^{
-                    NSString *gCode = [sut codeToMoveToX:50 y:0 fromX:0 y:0 speed:2000];
+                    NSString *gCode = [sut codeToMoveRelativeX:50 y:0 speed:2000];
                     [[gCode should] equal:@"G1 X50.000 Y0.000 F2000.000, E1.524"];
                 });
             });
