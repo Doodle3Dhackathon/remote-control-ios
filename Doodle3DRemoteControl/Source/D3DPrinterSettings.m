@@ -8,6 +8,8 @@
 @property(nonatomic, readwrite) CGFloat layerHeight;
 @property(nonatomic, readwrite) CGFloat wallthickness;
 @property(nonatomic, readwrite) CGFloat extrusion;
+@property(nonatomic, readwrite) CGFloat bedWith;
+@property(nonatomic, readwrite) CGFloat bedHeight;
 @end
 
 @implementation D3DPrinterSettings
@@ -54,6 +56,9 @@
         self.layerHeight = 0.2;
         self.filamentThickness = 2.89;
         self.bottomFlowRate = 2.0;
+
+        self.bedWith = 200;
+        self.bedHeight = 200;
     }
 
     return self;
@@ -71,7 +76,7 @@
     newPosition.x += relativeX;
     newPosition.y += relativeY;
 
-    if (newPosition.x < 0 || newPosition.x > 200 || newPosition.y < 0 || newPosition.y > 200 )
+    if (newPosition.x < 0 || newPosition.x > self.bedWith || newPosition.y < 0 || newPosition.y > self.bedHeight )
     {
         return nil;
     }
