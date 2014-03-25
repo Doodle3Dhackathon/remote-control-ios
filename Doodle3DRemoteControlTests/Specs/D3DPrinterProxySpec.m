@@ -22,7 +22,7 @@ SPEC_BEGIN(D3DPrinterProxySpec)
                     proxy = [[D3DPrinterProxy alloc] initWithIPAddress:@"1.2.3.4"];
                 });
 
-                it(@"posts the request with the expected parameters",^{
+                it(@"posts the request with the expected parameters", ^{
                     NSDictionary *expectParams = @{
                             @"start" : @"true",
                             @"first" : @"false",
@@ -64,12 +64,41 @@ SPEC_BEGIN(D3DPrinterProxySpec)
                     });
                 });
 
-                describe(@"stay within boundaries", ^{
-
-                    it(@"doesn't post a request when the move goes out of bounds", ^{
+                describe(@"no requests when out of bounds", ^{
+                    beforeEach(^{
                         proxy.requestOperationManager = [AFHTTPRequestOperationManager mock];
-                        [proxy moveYDown];
+                    });
 
+                    it(@"moves down", ^{
+                        [proxy moveYDown];
+                    });
+
+                    it(@"moves left", ^{
+                        [proxy moveXLeft];
+                    });
+
+                    it(@"moves right", ^{
+                        [[proxy.requestOperationManager should] receive:@selector(POST:parameters:success:failure:)
+                                                              withCount:4
+                                                              arguments:any(), any(), any(), any()];
+
+                        [proxy moveXRight];
+                        [proxy moveXRight];
+                        [proxy moveXRight];
+                        [proxy moveXRight];
+                        [proxy moveXRight];
+                    });
+
+                    it(@"moves up", ^{
+                        [[proxy.requestOperationManager should] receive:@selector(POST:parameters:success:failure:)
+                                                              withCount:4
+                                                              arguments:any(), any(), any(), any()];
+
+                        [proxy moveYUp];
+                        [proxy moveYUp];
+                        [proxy moveYUp];
+                        [proxy moveYUp];
+                        [proxy moveYUp];
                     });
                 });
             });
