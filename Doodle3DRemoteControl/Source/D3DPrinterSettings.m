@@ -1,8 +1,7 @@
 #import "D3DPrinterSettings.h"
 
 @interface D3DPrinterSettings ()
-@property(nonatomic) CGFloat x;
-@property(nonatomic) CGFloat y;
+@property(nonatomic) CGPoint position;
 @property(nonatomic) CGFloat z;
 @property(nonatomic, readwrite) CGFloat bottomFlowRate;
 @property(nonatomic, readwrite) CGFloat filamentThickness;
@@ -68,12 +67,17 @@
 
 - (NSString *)codeToMoveRelativeX:(CGFloat)relativeX y:(CGFloat)relativeY speed:(CGFloat)speed
 {
-    CGFloat extrusion = [self calculateExtrusionForRelativeX:relativeX y:relativeY];
-    self.x += relativeX;
-    self.y += relativeY;
-    self.extrusion += extrusion;
+    CGPoint newPosition = self.position;
+    newPosition.x += relativeX;
+    newPosition.y += relativeY;
 
-    return [NSString stringWithFormat:@"G1 X%.3f Y%.3f F%.3f, E%.3f", self.x, self.y, speed, self.extrusion];
+
+
+    CGFloat extrusion = [self calculateExtrusionForRelativeX:relativeX y:relativeY];
+    self.extrusion += extrusion;
+    self.position = newPosition;
+
+    return [NSString stringWithFormat:@"G1 X%.3f Y%.3f F%.3f, E%.3f", self.position.x, self.position.y, speed, self.extrusion];
 }
 
 - (CGFloat)calculateExtrusionForRelativeX:(CGFloat)dx y:(CGFloat)dy

@@ -20,20 +20,21 @@ SPEC_BEGIN(D3DPrinterSettingsSpec)
                 sut = [[D3DPrinterSettings alloc] init];
             });
 
-            it(@"calculate's extrusion for movement on x axis", ^{
-                CGFloat extrusion = [sut calculateExtrusionForRelativeX:50 y:0];
+            describe(@"calculating extrusion", ^{
+                it(@"calculate's extrusion for movement on x axis", ^{
+                    CGFloat extrusion = [sut calculateExtrusionForRelativeX:50 y:0];
+                    [[theValue(extrusion) should] equal:1.524 withDelta:0.001];
+                });
 
-                [[theValue(extrusion) should] equal:1.524 withDelta:0.001];
-            });
+                it(@"calculate's extrusion for movement on y axis", ^{
+                    CGFloat extrusion = [sut calculateExtrusionForRelativeX:0 y:50];
+                    [[theValue(extrusion) should] equal:1.524 withDelta:0.001];
+                });
 
-            it(@"calculate's extrusion for movement on y axis", ^{
-                CGFloat extrusion = [sut calculateExtrusionForRelativeX:0 y:50];
-                [[theValue(extrusion) should] equal:1.524 withDelta:0.001];
-            });
-
-            it(@"calculate's extrusion for double movement on x axis", ^{
-                CGFloat extrusion = [sut calculateExtrusionForRelativeX:100 y:0];
-                [[theValue(extrusion) should] equal:3.048 withDelta:0.001];
+                it(@"calculate's extrusion for double movement on x axis", ^{
+                    CGFloat extrusion = [sut calculateExtrusionForRelativeX:100 y:0];
+                    [[theValue(extrusion) should] equal:3.048 withDelta:0.001];
+                });
             });
 
             describe(@"generating move code", ^{
@@ -79,6 +80,21 @@ SPEC_BEGIN(D3DPrinterSettingsSpec)
                 it(@"generates the code to move on the x/y plane", ^{
                     NSString *gCode = [sut codeToMoveRelativeX:50 y:0 speed:2000];
                     [[gCode should] equal:@"G1 X50.000 Y0.000 F2000.000, E1.524"];
+                });
+            });
+
+            describe(@"boundaries", ^{
+
+                it(@"accepts moves within the boundaries", ^{
+
+                    NSString *gCode = [sut codeToMoveRelativeX:50 y:0 speed:2000];
+                    [[gCode should] equal:@"G1 X50.000 Y0.000 F2000.000, E1.524"];
+
+                    gCode = [sut codeToMoveRelativeX:150 y:0 speed:2000];
+                    [[gCode should] equal:@"G1 X200.000 Y0.000 F2000.000, E6.098"];
+
+                    gCode = [sut codeToMoveRelativeX:0 y:200 speed:2000];
+                    [[gCode should] equal:@"G1 X200.000 Y200.000 F2000.000, E12.196"];
                 });
             });
         });
