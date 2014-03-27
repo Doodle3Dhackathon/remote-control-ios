@@ -58,7 +58,7 @@ SPEC_BEGIN(D3DPrinterProxySpec)
                                 @"gcode" : @"G1 X50.000 Y50.000 F2000.000, E3.049"
                         };
 
-                        [[proxy.requestOperationManager should] receive:@selector(POST:parameters:success:failure:)
+                        [[proxy.requestOperationManager shouldEventually] receive:@selector(POST:parameters:success:failure:)
                                                           withArguments:any(), expectParams, any(), any()];
                         [proxy moveYUp];
                     });
@@ -69,16 +69,18 @@ SPEC_BEGIN(D3DPrinterProxySpec)
                         proxy.requestOperationManager = [AFHTTPRequestOperationManager mock];
                     });
 
-                    it(@"moves down", ^{
+                    it(@"can't move down", ^{
+                        // Rely on mock
                         [proxy moveYDown];
                     });
 
-                    it(@"moves left", ^{
+                    it(@"can't move left", ^{
+                        // Rely on mock
                         [proxy moveXLeft];
                     });
 
-                    it(@"moves right", ^{
-                        [[proxy.requestOperationManager should] receive:@selector(POST:parameters:success:failure:)
+                    it(@"can't move right", ^{
+                        [[proxy.requestOperationManager shouldEventually] receive:@selector(POST:parameters:success:failure:)
                                                               withCount:4
                                                               arguments:any(), any(), any(), any()];
 
@@ -89,8 +91,8 @@ SPEC_BEGIN(D3DPrinterProxySpec)
                         [proxy moveXRight];
                     });
 
-                    it(@"moves up", ^{
-                        [[proxy.requestOperationManager should] receive:@selector(POST:parameters:success:failure:)
+                    it(@"can't move up", ^{
+                        [[proxy.requestOperationManager shouldEventually] receive:@selector(POST:parameters:success:failure:)
                                                               withCount:4
                                                               arguments:any(), any(), any(), any()];
 
