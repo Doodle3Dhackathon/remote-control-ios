@@ -1,45 +1,51 @@
 #import <AFNetworking/AFHTTPRequestOperation.h>
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
+#import "D3DPrinterService.h"
 #import "D3DPrinterSettings.h"
 #import "D3DPrinterProxy.h"
 #import "D3DPrinterSettings.h"
+#import "D3DPrinterService.h"
 
 @interface D3DPrinterProxy ()
 
 @property(nonatomic) CGFloat extrusion;
-@property(nonatomic, strong) NSString *ipAddress;
 @property(nonatomic, strong) D3DPrinterSettings *printerSettings;
 @property(nonatomic) NSInteger stepDistance;
 @property(nonatomic) CGFloat speed;
-@property(nonatomic, strong) NSMutableArray *gCodeQueue;
 @end
 
 @implementation D3DPrinterProxy
 
-- (id)initWithIPAddress:(NSString *)ipAddress
+- (id)init
 {
-    self = [self init];
+    self = [super init];
 
     if (self)
     {
-        self.printerSettings = [[D3DPrinterSettings alloc] init];
-        self.ipAddress = ipAddress;
         self.stepDistance = 50;
         self.speed = 2000;
-
-        self.gCodeQueue = [NSMutableArray array];
     }
 
     return self;
 }
 
-- (AFHTTPRequestOperationManager *)requestOperationManager
+- (D3DPrinterSettings *)printerSettings
 {
-    if (!_requestOperationManager)
+    if(! _printerSettings)
     {
-        self.requestOperationManager = [AFHTTPRequestOperationManager manager];
+        self.printerSettings = [[D3DPrinterSettings alloc] init];
     }
-    return _requestOperationManager;
+
+    return _printerSettings;
+}
+
+- (D3DPrinterService *)printerService
+{
+    if(! _printerService)
+    {
+        self.printerService = [[D3DPrinterService alloc] initWithIPAddress:@"10.1.3.47"];
+    }
+    return _printerService;
 }
 
 - (void)start
@@ -99,32 +105,8 @@
             @"gcode" : gCode
     };
 
-    [self.gCodeQueue addObject:parameters];
-    [self postNextInQueue];
+    [self.printerService queuePostParameters:parameters];
 }
 
-- (void)postNextInQueue
-{
-    if ([self.gCodeQueue count])
-    {
-        id gCodeParameters = [self.gCodeQueue objectAtIndex:0];
-        [self.gCodeQueue removeObjectAtIndex:0];
-        [self postAPIRequestWithGCodeParameters:gCodeParameters];
-    }
-}
-
-- (void)postAPIRequestWithGCodeParameters:(NSDictionary *)parameters
-{
-    __block NSString *apiResponse;
-
-    NSString *URLString = [NSString stringWithFormat:@"http://%@/d3dapi/printer/print", self.ipAddress];
-    [self.requestOperationManager POST:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        apiResponse = [NSString stringWithFormat:@"JSON: %@", responseObject];
-        NSLog(@"response succes is %@", apiResponse);
-    }                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        apiResponse = [NSString stringWithFormat:@"Error: %@", error];
-        NSLog(@"response failure is %@", apiResponse);
-    }];
-}
 
 @end
