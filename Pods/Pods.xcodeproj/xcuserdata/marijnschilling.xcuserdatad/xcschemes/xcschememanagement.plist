@@ -4,12 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-AFNetworking.xcscheme</key>
+		<key>Pods-Doodle3DRemoteControl-AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-Doodle3DRemoteControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Doodle3DRemoteControlTests-Kiwi.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Doodle3DRemoteControlTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>50C2BF14270D48949E478B66</key>
+		<key>1497226477E14DDE8F31DE59</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B347119D80E346CE809F97CA</key>
+		<key>4755D62216DF4802B79E7825</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>481AA449DA314B24ACE709EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B2AD84D188BB49E6B055E8AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
