@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, D3DButtonTag)
 
     if (self)
     {
-        self.printerProxy = [[D3DPrinterProxy alloc] initWithIPAddress:@"10.1.3.47"];
+        self.printerProxy = [[D3DPrinterProxy alloc] init];
     }
 
     return self;

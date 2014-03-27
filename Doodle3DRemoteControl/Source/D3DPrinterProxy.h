@@ -1,11 +1,10 @@
 #import <Foundation/Foundation.h>
 
-@class AFHTTPRequestOperationManager;
+@class D3DPrinterService;
 
 @interface D3DPrinterProxy : NSObject
-@property(nonatomic, strong) AFHTTPRequestOperationManager *requestOperationManager;
 
-- (id)initWithIPAddress:(NSString *)ipAddress;
+@property(nonatomic, strong) D3DPrinterService * printerService;
 
 - (void)start;
 

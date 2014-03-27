@@ -1,13 +1,14 @@
 #import <AFNetworking/AFHTTPRequestOperation.h>
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
+#import "D3DPrinterService.h"
 #import "D3DPrinterSettings.h"
 #import "D3DPrinterProxy.h"
 #import "D3DPrinterSettings.h"
+#import "D3DPrinterService.h"
 
 @interface D3DPrinterProxy ()
 
 @property(nonatomic) CGFloat extrusion;
-@property(nonatomic, strong) NSString *ipAddress;
 @property(nonatomic, strong) D3DPrinterSettings *printerSettings;
 @property(nonatomic) NSInteger stepDistance;
 @property(nonatomic) CGFloat speed;
@@ -15,14 +16,12 @@
 
 @implementation D3DPrinterProxy
 
-- (id)initWithIPAddress:(NSString *)ipAddress
+- (id)init
 {
-    self = [self init];
+    self = [super init];
 
     if (self)
     {
-        self.printerSettings = [[D3DPrinterSettings alloc] init];
-        self.ipAddress = ipAddress;
         self.stepDistance = 50;
         self.speed = 2000;
     }
@@ -30,83 +29,84 @@
     return self;
 }
 
-- (AFHTTPRequestOperationManager *)requestOperationManager
+- (D3DPrinterSettings *)printerSettings
 {
-    if(!_requestOperationManager)
+    if(! _printerSettings)
     {
-        self.requestOperationManager = [AFHTTPRequestOperationManager manager];
+        self.printerSettings = [[D3DPrinterSettings alloc] init];
     }
-    return _requestOperationManager;
+
+    return _printerSettings;
+}
+
+- (D3DPrinterService *)printerService
+{
+    if(! _printerService)
+    {
+        self.printerService = [[D3DPrinterService alloc] initWithIPAddress:@"10.1.3.47"];
+    }
+    return _printerService;
 }
 
 - (void)start
 {
     NSString *gCode = [D3DPrinterSettings startCode];
-    [self postAPIRequest:gCode isStartCode:YES ];
+    [self queueGCode:gCode isStartCode:YES ];
 }
 
 - (void)stop
 {
     NSString *gCode = [D3DPrinterSettings stopCode];
-    [self postAPIRequest:gCode];
+    [self queueGCode:gCode];
 }
 
 - (void)moveZ
 {
     NSString *gCode = [self.printerSettings codeToMoveZ];
-    [self postAPIRequest:gCode];
+    [self queueGCode:gCode];
 }
 
 - (void)moveYUp
 {
     NSString *gCode = [self.printerSettings codeToMoveRelativeX:0 y:self.stepDistance speed:self.speed];
-    [self postAPIRequest:gCode];
+    [self queueGCode:gCode];
 }
 
 - (void)moveYDown
 {
     NSString *gCode = [self.printerSettings codeToMoveRelativeX:0 y:-self.stepDistance speed:self.speed];
-    [self postAPIRequest:gCode];
+    [self queueGCode:gCode];
 }
 
 - (void)moveXRight
 {
     NSString *gCode = [self.printerSettings codeToMoveRelativeX:self.stepDistance y:0 speed:self.speed];
-    [self postAPIRequest:gCode];
+    [self queueGCode:gCode];
 }
 
 - (void)moveXLeft
 {
     NSString *gCode = [self.printerSettings codeToMoveRelativeX:-self.stepDistance y:0 speed:self.speed];
-    [self postAPIRequest:gCode];
+    [self queueGCode:gCode];
 }
 
-- (void)postAPIRequest:(NSString *)gcode
+- (void)queueGCode:(NSString *)gCode
 {
-    [self postAPIRequest:gcode isStartCode:NO];
+    [self queueGCode:gCode isStartCode:NO];
 }
 
-- (void)postAPIRequest:(NSString *)gcode isStartCode:(BOOL)isStartCode
+- (void)queueGCode:(NSString *)gCode isStartCode:(BOOL)isStartCode
 {
-    if(gcode)
-    {
-        NSDictionary *parameters = @{
-                @"start" : @"true",
-                @"first" : isStartCode ? @"true" : @"false",
-                @"gcode" : gcode
-        };
+    if (!gCode) return;
 
-        __block NSString *apiResponse;
+    NSDictionary *parameters = @{
+            @"start" : @"true",
+            @"first" : isStartCode ? @"true" : @"false",
+            @"gcode" : gCode
+    };
 
-        NSString *URLString = [NSString stringWithFormat:@"http://%@/d3dapi/printer/print", self.ipAddress];
-        [self.requestOperationManager POST:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            apiResponse = [NSString stringWithFormat:@"JSON: %@", responseObject];
-            NSLog(@"response succes is %@", apiResponse);
-        }                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            apiResponse = [NSString stringWithFormat:@"Error: %@", error];
-            NSLog(@"response failure is %@", apiResponse);
-        }];
-    }
+    [self.printerService queuePostParameters:parameters];
 }
+
 
 @end
